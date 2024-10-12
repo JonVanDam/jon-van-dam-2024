@@ -1,1 +1,13 @@
 @import 'base.css';
+
+/* HEADER */
+
+a.discord {
+  background-color: #5466bb;
+  color: white;
+  font-weight: 600;
+}
+
+a.discord:hover {
+  background-color: #5466bbcc;
+}

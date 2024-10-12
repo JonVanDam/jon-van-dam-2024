@@ -1,12 +1,19 @@
 ---
-
+import ThemeButton from './ThemeButton.astro';
 ---
 
-<header
-  class="fixed top-0 w-full h-12 bg-white z-50 border-b border-neutral-400"
->
+<header class="fixed top-0 w-full h-12 z-50 border-b border-primary">
   <div class="w-full h-full flex justify-between items-center px-8">
-    <a class="text-xl" href="/grapple-component">Jon Van Dam</a>
-    <div></div>
+    <a class="text-lg whitespace-nowrap" href="/"> Jon Van Dam </a>
+    <div class="flex items-center gap-6">
+      <a
+        class="button discord"
+        href="https://discord.com/invite/jZ2s8a7cg4"
+        target="_blank"
+      >
+        Join us on discord
+      </a>
+      <ThemeButton />
+    </div>
   </div>
 </header>
