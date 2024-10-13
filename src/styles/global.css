@@ -4,7 +4,7 @@
 
 .header-wrap {
   @apply fixed top-0 w-full h-12 z-50;
-  @apply border-b border-primary shadow-sm;
+  @apply bg-primary border-b border-primary shadow-sm;
 }
 
 .header {
@@ -14,13 +14,13 @@
 /* HEADER MENU - a toggable dropdown menu below 640px */
 
 .header .header-menu {
-  @apply relative flex items-center gap-6;
+  @apply bg-primary relative flex items-center gap-6;
 }
 
 @media screen and (max-width: 640px) {
   .header .header-menu {
     @apply absolute top-12 left-0 right-0 py-4 w-full hidden flex-col items-end px-8;
-    @apply bg-primary border-b border-primary shadow-md;
+    @apply border-b border-primary shadow-md;
   }
 
   .header.menu-open .header-menu {
