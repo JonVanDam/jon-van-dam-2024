@@ -2,13 +2,71 @@
 
 /* HEADER */
 
-a.discord {
+.header-wrap {
+  @apply fixed top-0 w-full h-12 z-50;
+  @apply border-b border-primary shadow-sm;
+}
+
+.header {
+  @apply w-full h-full flex justify-between items-center px-8;
+}
+
+/* HEADER MENU - a toggable dropdown menu below 640px */
+
+.header .header-menu {
+  @apply relative flex items-center gap-6;
+}
+
+@media screen and (max-width: 640px) {
+  .header .header-menu {
+    @apply absolute top-12 left-0 right-0 py-4 w-full hidden flex-col items-end px-8;
+    @apply bg-primary border-b border-primary shadow-md;
+  }
+
+  .header.menu-open .header-menu {
+    @apply flex;
+  }
+}
+
+/* HEADER MENU TOGGLE */
+
+.header #menu-toggle {
+  @apply hidden;
+}
+
+@media screen and (max-width: 640px) {
+  .header #menu-toggle {
+    @apply block;
+  }
+}
+
+/* HEADER MENU TOGGLE ICON - display correct icon depending on menu-open state */
+
+.header .action-open {
+  display: block;
+}
+
+.header .action-close {
+  display: none;
+}
+
+.header.menu-open .action-open {
+  display: none;
+}
+
+.header.menu-open .action-close {
+  display: block;
+}
+
+/* HEADER MENU DISCORD BUTTON - add specific color and styling */
+
+.header a.discord {
   background-color: #5865f2;
   color: white;
   font-weight: 600;
-  @apply flex items-center gap-2;
+  @apply flex items-center gap-2 truncate;
 }
 
-a.discord:hover {
+.header a.discord:hover {
   background-color: #5865f2cc;
 }

@@ -22,7 +22,7 @@ body {
   box-sizing: border-box;
 }
 
-a:hover {
+a:not(.no-hover):not(.button):hover {
   text-decoration: underline;
 }
 
@@ -34,7 +34,7 @@ a.button {
   border-radius: 10px;
   padding: 4px 15px;
   transition: all 0.3s;
-  border: 0;
+  border-width: 0;
 }
 
 button.default {

@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<button id="menu-toggle" class="text square">
+  <Icon class="action-open" name="basil:menu-outline" />
+  <Icon class="action-close scale-150" name="basil:cross-outline" />
+</button>
+
+<script is:inline>
+  const button = document.querySelector('#menu-toggle');
+
+  button?.addEventListener('click', () => {
+    const headerElement = document.querySelector('#header');
+
+    if (headerElement?.classList.contains('menu-open')) {
+      headerElement.classList.remove('menu-open');
+    } else {
+      headerElement?.classList.add('menu-open');
+    }
+  });
+</script>
