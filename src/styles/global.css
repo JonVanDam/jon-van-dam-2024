@@ -3,11 +3,12 @@
 /* HEADER */
 
 a.discord {
-  background-color: #5466bb;
+  background-color: #5865f2;
   color: white;
   font-weight: 600;
+  @apply flex items-center gap-2;
 }
 
 a.discord:hover {
-  background-color: #5466bbcc;
+  background-color: #5865f2cc;
 }

@@ -22,6 +22,10 @@ body {
   box-sizing: border-box;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 /* Button styling */
 
 button,
@@ -55,4 +59,10 @@ button.text {
 
 button.square {
   padding: 4px 4px;
+}
+
+/* Icon styling */
+
+[data-icon] {
+  font-size: 18px;
 }

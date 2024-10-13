@@ -1,5 +1,6 @@
 ---
 import ThemeButton from './ThemeButton.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <header class="fixed top-0 w-full h-12 z-50 border-b border-primary">
@@ -11,7 +12,8 @@ import ThemeButton from './ThemeButton.astro';
         href="https://discord.com/invite/jZ2s8a7cg4"
         target="_blank"
       >
-        Join us on discord
+        <Icon name="simple-icons:discord" />
+        Join us on Discord
       </a>
       <ThemeButton />
     </div>
