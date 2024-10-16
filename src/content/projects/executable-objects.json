@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "title": "Executable Objects",
+  "draft": false,
+  "createdAt": "2024-10-16",
+  "description": "General purpose object class used to create asynchronous tasks in Blueprints.",
+  "chapters": [],
+  "seoTitle": "",
+  "seoKeywords": [],
+  "seoDescription": ""
+}

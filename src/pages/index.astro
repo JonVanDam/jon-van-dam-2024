@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 
 const pageTitle = 'Jon Van Dam';
+
+const projects = await getCollection('projects');
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -12,18 +15,17 @@ const pageTitle = 'Jon Van Dam';
       <button class="text">Hello world</button>
     </div>
     <div class="container">
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-        suscipit, voluptatem odio sunt perferendis esse distinctio, sapiente
-        quos harum voluptate quae laboriosam ipsum cum error exercitationem
-        quibusdam similique natus aspernatur.
-      </p>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-        suscipit, voluptatem odio sunt perferendis esse distinctio, sapiente
-        quos harum voluptate quae laboriosam ipsum cum error exercitationem
-        quibusdam similique natus aspernatur.
-      </p>
+      {
+        projects.map((project: any) => (
+          <li>
+            <a
+              href={`/projects/${project.data.title.replace(' ', '-').toLowerCase()}`}
+            >
+              {project.data.title}
+            </a>
+          </li>
+        ))
+      }
     </div>
   </div>
 </BaseLayout>
