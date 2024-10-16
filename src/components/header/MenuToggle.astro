@@ -3,11 +3,16 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <button id="menu-toggle" class="text square">
-  <Icon class="action-open" name="basil:menu-outline" />
-  <Icon class="action-close scale-150" name="basil:cross-outline" />
+  <Icon class="action-open pointer-events-none" name="basil:menu-outline" />
+  <Icon
+    class="action-close scale-150 pointer-events-none"
+    name="basil:cross-outline"
+  />
 </button>
 
 <script is:inline>
+  // Register menu-toggle -> open or close menu
+
   const button = document.querySelector('#menu-toggle');
 
   button?.addEventListener('click', () => {
@@ -17,6 +22,20 @@ import { Icon } from 'astro-icon/components';
       headerElement.classList.remove('menu-open');
     } else {
       headerElement?.classList.add('menu-open');
+    }
+  });
+
+  // Register click outside of menu -> close menu
+
+  window.addEventListener('click', (evt) => {
+    const headerElement = document.querySelector('#header');
+
+    const target = evt.target;
+
+    if (target.id === 'menu-toggle') return;
+
+    if (!target.closest('.header-menu')) {
+      headerElement.classList.remove('menu-open');
     }
   });
 </script>
