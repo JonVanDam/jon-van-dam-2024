@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../.astro/collections/chapters.schema.json",
+  "title": "Reference Material",
+  "project": "executable-objects",
+  "sortOrder": 0
+}

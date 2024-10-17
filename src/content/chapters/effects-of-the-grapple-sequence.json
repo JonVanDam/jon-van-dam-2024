@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../.astro/collections/chapters.schema.json",
+  "title": "Effects of the Grapple Sequence",
+  "project": "grapple-component",
+  "sortOrder": 0
+}

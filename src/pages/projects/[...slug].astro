@@ -1,22 +1,30 @@
 ---
+// @ts-nocheck
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
-  return projectEntries.map((entry: any) => ({
+  return projectEntries.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
   }));
 }
 
-const { entry } = Astro.props as any;
-const pageTitle = (entry as any).data.title;
+const { entry } = Astro.props;
+const pageTitle = entry.data.title;
+
+const chapters = await getCollection('chapters', ({ data }) => {
+  return data.project.id === entry.id;
+});
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="p-4">
     <h1 class="text-xl mb-4">{entry.data.title}</h1>
     <p>{entry.data.description}</p>
+    <div class="p-4">
+      {chapters.map((chapter) => <li>{chapter.data.title}</li>)}
+    </div>
   </div>
 </BaseLayout>

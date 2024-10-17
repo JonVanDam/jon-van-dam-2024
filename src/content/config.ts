@@ -18,10 +18,8 @@ const chapterCollection = defineCollection({
   type: 'data',
   schema: z.object({
     title: z.string(),
-    introduction: z.string(),
     sortOrder: z.number(),
     project: reference('projects'),
-    articles: z.array(reference('articles')),
   }),
 });
 
@@ -33,7 +31,6 @@ const projectCollection = defineCollection({
     createdAt: z.string().transform((str) => new Date(str)),
     bannerImage: z.string().optional(),
     draft: z.boolean(),
-    chapters: z.array(reference('chapters')),
     seoTitle: z.string(),
     seoKeywords: z.array(z.string()),
     seoDescription: z.string(),
