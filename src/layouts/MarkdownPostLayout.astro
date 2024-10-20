@@ -1,0 +1,85 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Prose from '../components/Prose.astro';
+import { slugify, deslugify } from '../util/util';
+const { frontmatter } = Astro.props;
+
+const sideBarWidth = 300;
+
+const projectId = frontmatter.url.split('/')[1];
+const chapterId = frontmatter.url.split('/')[2];
+
+const getAllProjects = await Astro.glob('../pages/*/*.md');
+
+const project = getAllProjects.find((project) => {
+  const slug = slugify(project.frontmatter.title);
+  return slug === projectId;
+});
+
+const getAllArticles = await Astro.glob('../pages/*/*/*.md');
+
+const articles = getAllArticles.filter((article) => {
+  return article.url?.includes(projectId);
+});
+
+const getAllArticlePaths = import.meta.glob('../pages/*/*/*.md');
+
+let chapterIds: string[] = [];
+
+for (const path in getAllArticlePaths) {
+  if (path.includes(projectId)) {
+    const chapter = path.split('/')[3];
+    if (!chapterIds.includes(chapter)) {
+      chapterIds.push(chapter);
+    }
+  }
+}
+
+const chapters = chapterIds.map((chapterId) => {
+  return project?.frontmatter.chapters.find(
+    (chapter) => chapter.title === chapterId,
+  );
+});
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <div class="flex">
+    <div class="py-10 pr-6" style={{ width: sideBarWidth + 'px' }}>
+      <ul>
+        {
+          chapters
+            .sort((a, b) => (a.sortOrder > b.sortOrder ? 1 : -1))
+            .map((chapter) => (
+              <li class="mb-4">
+                <div class="font-semibold">{deslugify(chapter.title)}</div>
+                <ul class="mt-2">
+                  {articles
+                    .filter((article) => article.url?.includes(chapter.title))
+                    .sort((a, b) =>
+                      a.frontmatter.sortOrder > b.frontmatter.sortOrder
+                        ? 1
+                        : -1,
+                    )
+                    .map((article) => (
+                      <li class="py-1">
+                        <a href={article.url}>{article.frontmatter.title}</a>
+                      </li>
+                    ))}
+                </ul>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+    <div style={{ width: `calc(100% - ${sideBarWidth}` }}>
+      <div class="py-10">
+        <div class="mt-2 mb-10">
+          <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
+        </div>
+        <Prose>
+          <slot />
+        </Prose>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,6 +1,0 @@
-{
-  "$schema": "../../../.astro/collections/chapters.schema.json",
-  "title": "Overview of the Grapple Component",
-  "project": "grapple-component",
-  "sortOrder": 0
-}

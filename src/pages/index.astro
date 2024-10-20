@@ -1,31 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 
 const pageTitle = 'Jon Van Dam';
 
-const projects = await getCollection('projects');
+const projects = await Astro.glob('./*/*.md');
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="p-5">
-    <div class="flex gap-4 mb-4">
+  <div class="py-10">
+    <div class="mb-4">
+      <h1>Projects</h1>
+    </div>
+    <div class="flex flex-wrap items-center gap-10">
+      {
+        projects
+          .sort((a, b) =>
+            a.frontmatter.title.localeCompare(b.frontmatter.title) ? -1 : 1,
+          )
+          .map((project) => {
+            return (
+              <div class="shadow-md rounded-lg overflow-hidden">
+                <a href={project.url}>
+                  <img
+                    src={project.frontmatter.thumbnail}
+                    width="300"
+                    class="hover:opacity-80 transition-all"
+                  />
+                </a>
+              </div>
+            );
+          })
+      }
+    </div>
+    <div class="hidden gap-4 mb-4">
       <button class="primary">Hello world</button>
       <button class="default">Hello world</button>
       <button class="text">Hello world</button>
-    </div>
-    <div class="container">
-      {
-        projects.map((project: any) => (
-          <li>
-            <a
-              href={`/projects/${project.data.title.replace(' ', '-').toLowerCase()}`}
-            >
-              {project.data.title}
-            </a>
-          </li>
-        ))
-      }
     </div>
   </div>
 </BaseLayout>

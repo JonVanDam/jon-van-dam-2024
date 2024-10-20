@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/MarkdownPostLayout.astro
 title: 'Basic Concepts'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
@@ -6,14 +7,11 @@ sortOrder: 1
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
-chapter: 'overview-of-the-grapple-component'
 ---
 
 ## Grapple Component
 
 The Grapple Component is an Actor Component which can be added to any Pawn. The Grapple Component's main functionality relates to Grapple Sequences. It allows other Blueprints to control the Grapple Sequence, and acts as a proxy that represents its owning Actor in the Grapple Sequence.
-
-![Grapple Component Thumbnail](../../../assets/images/grapple-component-thumbnail.jpg)
 
 ## Grapple Sequence
 
