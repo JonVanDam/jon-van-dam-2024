@@ -4,8 +4,11 @@ export const slugify = (string: string) => {
 
 export const deslugify = (slug: string) => {
   const words = slug.split('-');
-  const capitalize = words.map((w) =>
-    w.length > 3 ? w[0].toUpperCase() + w.slice(1) : w,
-  );
+  const capitalize = words
+    .map((w) => (w.length > 3 ? w[0].toUpperCase() + w.slice(1) : w))
+    .filter((w) => {
+      return Number.isNaN(parseInt(w));
+    });
+
   return capitalize.join(' ');
 };

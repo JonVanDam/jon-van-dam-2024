@@ -7,7 +7,6 @@ const { frontmatter } = Astro.props;
 const sideBarWidth = 300;
 
 const projectId = frontmatter.url.split('/')[1];
-const chapterId = frontmatter.url.split('/')[2];
 
 const getAllProjects = await Astro.glob('../pages/*/*.md');
 
@@ -34,12 +33,6 @@ for (const path in getAllArticlePaths) {
     }
   }
 }
-
-const chapters = chapterIds.map((chapterId) => {
-  return project?.frontmatter.chapters.find(
-    (chapter) => chapter.title === chapterId,
-  );
-});
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -47,27 +40,23 @@ const chapters = chapterIds.map((chapterId) => {
     <div class="py-10 pr-6" style={{ width: sideBarWidth + 'px' }}>
       <ul>
         {
-          chapters
-            .sort((a, b) => (a.sortOrder > b.sortOrder ? 1 : -1))
-            .map((chapter) => (
-              <li class="mb-4">
-                <div class="font-semibold">{deslugify(chapter.title)}</div>
-                <ul class="mt-2">
-                  {articles
-                    .filter((article) => article.url?.includes(chapter.title))
-                    .sort((a, b) =>
-                      a.frontmatter.sortOrder > b.frontmatter.sortOrder
-                        ? 1
-                        : -1,
-                    )
-                    .map((article) => (
-                      <li class="py-1">
-                        <a href={article.url}>{article.frontmatter.title}</a>
-                      </li>
-                    ))}
-                </ul>
-              </li>
-            ))
+          chapterIds.map((chapter) => (
+            <li class="mb-4">
+              <div class="font-semibold">{deslugify(chapter)}</div>
+              <ul class="mt-2">
+                {articles
+                  .filter((article) => article.url?.includes(chapter))
+                  .sort((a, b) =>
+                    a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1,
+                  )
+                  .map((article) => (
+                    <li class="py-1">
+                      <a href={article.url}>{article.frontmatter.title}</a>
+                    </li>
+                  ))}
+              </ul>
+            </li>
+          ))
         }
       </ul>
     </div>

@@ -8,11 +8,6 @@ sortOrder: 1
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
-chapters:
-  [
-    { sortOrder: 1, title: 'reference-material' },
-    { sortOrder: 2, title: 'tutorials' },
-  ]
 ---
 
 General purpose object class used to create asynchronous tasks in Blueprints.
