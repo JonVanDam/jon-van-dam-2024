@@ -11,15 +11,15 @@ Inside of this Astro project, you'll see the following folders and files necessa
 ├── src/
 │   └── assets/
 |       └── ...
-│   └── content/
+│   └── pages/
 │       └── ...
 ```
 
-All documentation content will be kept in the `src/content/` folder.
+All documentation content will be kept in the `src/pages/` folder.
 
 Any static assets, like images, can be placed in the `src/assets/` directory.
 
-It is very important to keep clear of the `layouts/`, `styles/`, `pages/`, `scripts/` and `components/` directories when not making any UI changes.
+It is very important to keep clear of the `layouts/`, `styles/`, `scripts/` and `components/` directories when not making any UI changes.
 
 ## Commands
 

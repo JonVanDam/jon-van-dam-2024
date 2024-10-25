@@ -4,6 +4,7 @@ title: 'Grapple Component'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
 thumbnail: /thumbnails/gc-thumbnail.jpg
+hero: /hero/gc-hero.jpg
 sortOrder: 1
 seoTitle: ''
 seoKeywords: []

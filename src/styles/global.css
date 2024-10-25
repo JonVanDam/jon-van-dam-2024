@@ -70,3 +70,49 @@
 .header a.discord:hover {
   background-color: #5865f2cc;
 }
+
+/* PROSE */
+
+.prose {
+  max-width: 768px;
+  --tw-prose-body: #000;
+}
+
+.prose span.function {
+  color: #e03e2d;
+  font-style: italic;
+}
+
+.prose span.object {
+  color: #7c00bf;
+  font-style: italic;
+}
+
+.prose div.note {
+  margin: 1.4em 3em;
+  background: #ebe5c6;
+  border: 1px solid #caba68;
+  padding: 1em;
+}
+
+html.dark .prose {
+  --tw-prose-body: #fff;
+  --tw-prose-headings: #fff;
+  --tw-prose-bold: #fff;
+  --tw-prose-links: #fff;
+}
+
+html.dark .prose span.function {
+  color: #ff6c6c;
+}
+
+html.dark .prose span.object {
+  color: #d381ff;
+  font-style: italic;
+}
+
+html.dark .prose div.note {
+  background: #757246;
+  border: 1px solid #4d472b;
+  color: #fff;
+}

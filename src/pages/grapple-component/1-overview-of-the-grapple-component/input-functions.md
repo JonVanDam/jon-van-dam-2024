@@ -11,8 +11,6 @@ seoDescription: ''
 
 ## Concept
 
-Input Functions on the Grapple Component are functions that are specifically meant for user input. Most commonly, they are used to control Grapple Sequences from their [Grapple Component](/grapple-component/overview/links-between). They can also be used on any Grapple Component for other functionality that is not tied to a Grapple Sequence.
+Input Functions on the Grapple Component are functions that are specifically meant for user input. Most commonly, they are used to control Grapple Sequences from their [Grapple Component](/grapple-component/1-overview-of-the-grapple-component/links-between). They can also be used on any Grapple Component for other functionality that is not tied to a Grapple Sequence.
 
 Most input functions include parameters that determine their Replication Mode and Timestamp.
-
-This is again an overview of how to get started: [link](/grapple-component/overview/basic-concepts#grapple-sequence)

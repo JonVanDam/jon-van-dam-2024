@@ -46,9 +46,7 @@ for (const path in getAllArticlePaths) {
               <ul class="mt-2">
                 {articles
                   .filter((article) => article.url?.includes(chapter))
-                  .sort((a, b) =>
-                    a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1,
-                  )
+                  .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
                   .map((article) => (
                     <li class="py-1">
                       <a href={article.url}>{article.frontmatter.title}</a>
@@ -60,7 +58,7 @@ for (const path in getAllArticlePaths) {
         }
       </ul>
     </div>
-    <div style={{ width: `calc(100% - ${sideBarWidth}` }}>
+    <div style={{ width: `calc(100% - ${sideBarWidth}px)` }}>
       <div class="py-10">
         <div class="mt-2 mb-10">
           <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
