@@ -8,10 +8,10 @@ const projects = await Astro.glob('./*/*.md');
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="py-10">
-    <div class="mb-4">
-      <h1>Projects</h1>
+    <div class="my-16 text-center">
+      <h1 class="text-4xl font-bold text-primary">Discover our high quality Blueprint components</h1>
     </div>
-    <div class="flex flex-wrap items-center gap-10">
+    <div class="flex flex-wrap justify-center items-center gap-20">
       {
         projects
           .sort((a, b) => (a.frontmatter.title.localeCompare(b.frontmatter.title) ? -1 : 1))
@@ -19,7 +19,7 @@ const projects = await Astro.glob('./*/*.md');
             return (
               <div class="shadow-md rounded-lg overflow-hidden">
                 <a href={project.url}>
-                  <img src={project.frontmatter.thumbnail} width="300" class="hover:opacity-80 transition-all" />
+                  <img src={project.frontmatter.thumbnail} width="400" class="hover:opacity-80 transition-all" />
                 </a>
               </div>
             );

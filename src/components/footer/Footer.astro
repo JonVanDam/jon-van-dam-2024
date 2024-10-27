@@ -4,21 +4,13 @@ import Social from './Social.astro';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full border-t border-primary">
-  <div class="h-full max-w-[90rem] mx-auto">
+<footer class="w-full border-t border-primary h-[180px]">
+  <div class="max-w-[90rem] mx-auto">
     <div class="max-w-[400px] mx-auto px-8 text-secondary text-sm">
       <div class="border-b border-primary mx-auto">
         <div class="my-4 flex flex-col gap-3 justify-center items-center">
-          <Social
-            platform="discord"
-            label="Join us on Discord"
-            link="https://discord.com/invite/jZ2s8a7cg4"
-          />
-          <Social
-            platform="maildotru"
-            label="jon@jonvandam.com"
-            link="mailto:jon@jonvandam.com"
-          />
+          <Social platform="discord" label="Join us on Discord" link="https://discord.com/invite/jZ2s8a7cg4" />
+          <Social platform="maildotru" label="jon@jonvandam.com" link="mailto:jon@jonvandam.com" />
           <Social
             platform="unrealengine"
             label="Unreal Marketplace"

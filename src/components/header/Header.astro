@@ -1,9 +1,11 @@
 ---
 import Menu from './Menu.astro';
 import MenuToggle from './MenuToggle.astro';
+
+const { onHomePage } = Astro.props;
 ---
 
-<header class="header-wrap">
+<header class={'header-wrap ' + (onHomePage ? '' : 'header-bg')}>
   <div class="h-full max-w-[90rem] mx-auto">
     <div id="header" class="header">
       <a class="text-lg whitespace-nowrap no-hover" href="/"> Jon Van Dam </a>

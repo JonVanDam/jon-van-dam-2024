@@ -1,17 +1,17 @@
 ---
 import Footer from '../components/footer/Footer.astro';
+import Header from '../components/header/Header.astro';
 import HtmlLayout from './HtmlLayout.astro';
 
 const { pageTitle } = Astro.props;
 ---
 
 <HtmlLayout pageTitle={pageTitle}>
-  <main class="flex-1 mt-12 w-full">
-    <div class="h-full max-w-[90rem] mx-auto">
-      <div class="h-full px-8">
-        <slot />
-      </div>
-    </div>
-  </main>
-  <Footer />
+  <div class="gradient-bg">
+    <Header onHomePage={true} />
+    <main class="mt-12 w-full h-full" style={{ minHeight: 'calc(100vh - 228px)' }}>
+      <slot />
+    </main>
+    <Footer />
+  </div>
 </HtmlLayout>

@@ -2,6 +2,7 @@
 import HtmlLayout from './HtmlLayout.astro';
 import Prose from '../components/Prose.astro';
 import Footer from '../components/footer/Footer.astro';
+import Header from '../components/header/Header.astro';
 import { slugify, deslugify } from '../util/util';
 const { frontmatter } = Astro.props;
 
@@ -37,6 +38,7 @@ for (const path in getAllArticlePaths) {
 ---
 
 <HtmlLayout pageTitle={frontmatter.title}>
+  <Header onHomePage={false} />
   <div class="mt-12 flex-1 max-w-[90rem] mx-auto px-8">
     <div
       class="fixed inset-0 top-12 left-[max(0px,calc(50%-45rem))] right-auto py-10 pl-8 pr-6 overflow-y-auto"
