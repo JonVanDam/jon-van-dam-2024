@@ -14,18 +14,12 @@ const projects = await Astro.glob('./*/*.md');
     <div class="flex flex-wrap items-center gap-10">
       {
         projects
-          .sort((a, b) =>
-            a.frontmatter.title.localeCompare(b.frontmatter.title) ? -1 : 1,
-          )
+          .sort((a, b) => (a.frontmatter.title.localeCompare(b.frontmatter.title) ? -1 : 1))
           .map((project) => {
             return (
               <div class="shadow-md rounded-lg overflow-hidden">
                 <a href={project.url}>
-                  <img
-                    src={project.frontmatter.thumbnail}
-                    width="300"
-                    class="hover:opacity-80 transition-all"
-                  />
+                  <img src={project.frontmatter.thumbnail} width="300" class="hover:opacity-80 transition-all" />
                 </a>
               </div>
             );

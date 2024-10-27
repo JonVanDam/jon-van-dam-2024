@@ -1,6 +1,7 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import HtmlLayout from './HtmlLayout.astro';
 import Prose from '../components/Prose.astro';
+import Footer from '../components/footer/Footer.astro';
 import { slugify, deslugify } from '../util/util';
 const { frontmatter } = Astro.props;
 
@@ -35,20 +36,23 @@ for (const path in getAllArticlePaths) {
 }
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <div class="flex">
-    <div class="py-10 pr-6" style={{ width: sideBarWidth + 'px' }}>
+<HtmlLayout pageTitle={frontmatter.title}>
+  <div class="mt-12 flex-1 max-w-[90rem] mx-auto px-8">
+    <div
+      class="fixed inset-0 top-12 left-[max(0px,calc(50%-45rem))] right-auto py-10 pl-8 pr-6 overflow-y-auto"
+      style={{ width: sideBarWidth + 'px' }}
+    >
       <ul>
         {
           chapterIds.map((chapter) => (
-            <li class="mb-4">
+            <li class="mb-8">
               <div class="font-semibold">{deslugify(chapter)}</div>
               <ul class="mt-2">
                 {articles
                   .filter((article) => article.url?.includes(chapter))
                   .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
                   .map((article) => (
-                    <li class="py-1">
+                    <li class="py-1 pl-4 border-l border-primary">
                       <a href={article.url}>{article.frontmatter.title}</a>
                     </li>
                   ))}
@@ -58,15 +62,18 @@ for (const path in getAllArticlePaths) {
         }
       </ul>
     </div>
-    <div style={{ width: `calc(100% - ${sideBarWidth}px)` }}>
-      <div class="py-10">
-        <div class="mt-2 mb-10">
-          <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
-        </div>
-        <Prose>
-          <slot />
-        </Prose>
+    <div class="pl-72" style={{ minHeight: 'calc(100vh - 48px)' }}>
+      <div class="flex flex-col" style={{ minHeight: 'calc(100vh - 48px)' }}>
+        <main class="py-10 flex-1">
+          <div class="mt-2 mb-10">
+            <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
+          </div>
+          <Prose>
+            <slot />
+          </Prose>
+        </main>
+        <Footer />
       </div>
     </div>
   </div>
-</BaseLayout>
+</HtmlLayout>

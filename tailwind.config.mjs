@@ -33,10 +33,10 @@ export default {
         },
         //typography
         '.text-primary': {
-          '@apply text-zinc-900 dark:text-zinc-100': {},
+          '@apply text-zinc-800 dark:text-zinc-100': {},
         },
         '.text-secondary': {
-          '@apply text-zinc-800 dark:text-zinc-200': {},
+          '@apply text-zinc-700 dark:text-zinc-200': {},
         },
         '.text-tertiary': {
           '@apply text-zinc-600 dark:text-zinc-400': {},
