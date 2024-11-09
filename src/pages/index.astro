@@ -1,35 +1,41 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import HtmlLayout from '../layouts/HtmlLayout.astro';
+import Header from '../components/header/Header.astro';
+import Footer from '../components/footer/Footer.astro';
 
 const pageTitle = 'Jon Van Dam';
 
 const projects = await Astro.glob('./*/*.md');
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <div class="py-10">
-    <div class="my-16 text-center">
-      <h1 class="text-4xl font-bold text-primary">Discover our high quality Blueprint components</h1>
+<HtmlLayout pageTitle={pageTitle} onHomePage={true}>
+  <header class="w-full">
+    <Header onHomePage={true} />
+  </header>
+
+  <main class="w-full h-full flex-grow">
+    <div class="py-20 flex flex-col gap-16 px-8">
+      <div class="text-center">
+        <h1 class="text-4xl mb-4 font-bold text-primary">Documentation</h1>
+        <h2 class="text-lg text-tertiary">Guides, tutorials and how-to's for our BluePrint Components</h2>
+      </div>
+      <div class="flex flex-wrap justify-center items-center gap-16">
+        {
+          projects
+            .sort((a, b) => (a.frontmatter.title.localeCompare(b.frontmatter.title) ? -1 : 1))
+            .map((project) => {
+              return (
+                <div class="shadow-md rounded-lg overflow-hidden w-[300px] sm:w-[400px]">
+                  <a href={project.url}>
+                    <img src={project.frontmatter.thumbnail} class="hover:opacity-80 transition-all" />
+                  </a>
+                </div>
+              );
+            })
+        }
+      </div>
     </div>
-    <div class="flex flex-wrap justify-center items-center gap-20">
-      {
-        projects
-          .sort((a, b) => (a.frontmatter.title.localeCompare(b.frontmatter.title) ? -1 : 1))
-          .map((project) => {
-            return (
-              <div class="shadow-md rounded-lg overflow-hidden">
-                <a href={project.url}>
-                  <img src={project.frontmatter.thumbnail} width="400" class="hover:opacity-80 transition-all" />
-                </a>
-              </div>
-            );
-          })
-      }
-    </div>
-    <div class="hidden gap-4 mb-4">
-      <button class="primary">Hello world</button>
-      <button class="default">Hello world</button>
-      <button class="text">Hello world</button>
-    </div>
-  </div>
-</BaseLayout>
+  </main>
+
+  <Footer />
+</HtmlLayout>

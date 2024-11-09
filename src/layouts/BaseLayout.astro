@@ -7,11 +7,9 @@ const { pageTitle } = Astro.props;
 ---
 
 <HtmlLayout pageTitle={pageTitle}>
-  <div class="gradient-bg">
-    <Header onHomePage={true} />
-    <main class="mt-12 w-full h-full" style={{ minHeight: 'calc(100vh - 228px)' }}>
-      <slot />
-    </main>
-    <Footer />
-  </div>
+  <Header onHomePage={false} height={48} />
+  <main class="mt-12 w-full h-full">
+    <slot />
+  </main>
+  <Footer />
 </HtmlLayout>

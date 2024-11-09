@@ -2,8 +2,7 @@
 
 /* HOMEPAGE */
 
-.gradient-bg {
-  height: 100%;
+body.gradient-bg {
   background: rgb(245, 252, 255);
   background: linear-gradient(
     135deg,
@@ -16,7 +15,7 @@
   );
 }
 
-html.dark .gradient-bg {
+html.dark body.gradient-bg {
   background: rgb(2, 10, 22);
   background: rgb(0, 3, 4);
   background: linear-gradient(
@@ -33,7 +32,7 @@ html.dark .gradient-bg {
 /* HEADER */
 
 .header-wrap {
-  @apply fixed top-0 w-full h-12 z-50;
+  @apply fixed top-0 w-full z-50;
 }
 
 .header-bg {
@@ -41,7 +40,7 @@ html.dark .gradient-bg {
 }
 
 .header {
-  @apply w-full h-full flex justify-between items-center px-8;
+  @apply h-16 w-full flex justify-between items-center px-8;
 }
 
 /* HEADER MENU - a toggable dropdown menu below 640px */
@@ -52,9 +51,9 @@ html.dark .gradient-bg {
 
 @media screen and (max-width: 640px) {
   .header .header-menu {
-    @apply absolute top-12 left-0 right-0 py-4 w-full hidden flex-col items-end px-8;
+    @apply fixed top-16 left-0 right-0 bottom-0 py-4 w-full hidden flex-col items-end px-8;
     @apply bg-primary;
-    @apply border-b border-primary shadow-md;
+    @apply border-t border-primary;
   }
 
   .header.menu-open .header-menu {
@@ -65,7 +64,7 @@ html.dark .gradient-bg {
 /* HEADER MENU TOGGLE */
 
 .header #menu-toggle {
-  @apply hidden;
+  @apply hidden z-50;
 }
 
 @media screen and (max-width: 640px) {
