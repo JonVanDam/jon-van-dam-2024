@@ -23,7 +23,7 @@ export default {
         },
         //backgrounds
         '.bg-primary': {
-          '@apply bg-zinc-50 dark:bg-zinc-900': {},
+          '@apply bg-[#f5fcff] dark:bg-[#021217]': {},
         },
         '.bg-secondary': {
           '@apply bg-zinc-200 dark:bg-zinc-700': {},
