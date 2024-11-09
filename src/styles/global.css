@@ -16,8 +16,7 @@ body.gradient-bg {
 }
 
 html.dark body.gradient-bg {
-  background: rgb(2, 10, 22);
-  background: rgb(0, 3, 4);
+  background: rgb(0, 13, 17);
   background: linear-gradient(
     135deg,
     rgba(0, 3, 4, 0.563484768907563) 0%,
@@ -146,4 +145,35 @@ html.dark .prose span.object {
 
 html.dark .prose div.note {
   @apply bg-yellow-900 border border-yellow-600 text-yellow-100;
+}
+
+/* Scrollbar styling */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-primary;
+  border-right: 1px solid rgba(100, 100, 100, 0.2);
+  border-left: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  border-right: 1px solid rgba(200, 200, 200, 0.3);
+  border-left: 1px solid rgba(200, 200, 200, 0.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-[#c1c1c1] dark:bg-[#6b6b6b];
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#7d7d7d] dark:bg-[#939393];
 }
