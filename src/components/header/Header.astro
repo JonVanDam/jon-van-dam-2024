@@ -1,15 +1,20 @@
 ---
 import Menu from './Menu.astro';
 import MenuToggle from './MenuToggle.astro';
+import Navigation from '../navigation/Navigation.astro';
 
-const { onHomePage } = Astro.props;
+const { chapterIds } = Astro.props;
 ---
 
 <div class="h-full max-w-[90rem] mx-auto">
   <div id="header" class="header">
     <a class={'whitespace-nowrap no-hover text-xl'} href="/">Jon Van Dam</a>
 
-    <div id="header-menu" class="header-menu">
+    <div id="header-menu" class="header-menu overflow-y-auto">
+      <!-- Only show navigation in dropdown menu when chapterIds exist and on small screen -->
+      <div class="w-full block md:hidden">
+        {chapterIds ? <Navigation chapterIds={chapterIds} /> : null}
+      </div>
       <Menu />
     </div>
 
