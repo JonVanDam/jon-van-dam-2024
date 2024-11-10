@@ -1,15 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { slugify, deslugify } from '../../util/util';
+import { deslugify, slugify } from '../../util/util';
 
 const { projectId } = Astro.props;
-
-const getAllProjects = await Astro.glob('../../pages/*/*.md');
-
-const project = getAllProjects.find((project) => {
-  const slug = slugify(project.frontmatter.title);
-  return slug === projectId;
-});
 
 const getAllArticles = await Astro.glob('../../pages/*/*/*.md');
 
@@ -25,12 +18,12 @@ const articles = getAllArticles.filter((article) => {
       <Icon name="basil:search-outline" class="absolute top-5 left-5 scale-125 pointer-events-none" />
     </div>
     <div class="p-2">
-      <ul>
+      <ul class="max-h-[400px] overflow-y-auto">
         {
-          new Array(5).fill('Hello world hello world').map((test) => {
+          articles.map((article) => {
             return (
               <li class="py-2 px-1">
-                <a href="/">{test}</a>
+                <a href={article.url}>{article.frontmatter.title}</a>
               </li>
             );
           })
