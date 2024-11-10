@@ -3,20 +3,12 @@ import HtmlLayout from './HtmlLayout.astro';
 import Prose from '../components/Prose.astro';
 import Footer from '../components/footer/Footer.astro';
 import Header from '../components/header/Header.astro';
-import { slugify } from '../util/util';
 import Navigation from '../components/navigation/Navigation.astro';
 const { frontmatter } = Astro.props;
 
 const sideBarWidth = 300;
 
 const projectId = frontmatter.url.split('/')[1];
-
-const getAllProjects = await Astro.glob('../pages/*/*.md');
-
-const project = getAllProjects.find((project) => {
-  const slug = slugify(project.frontmatter.title);
-  return slug === projectId;
-});
 
 const getAllArticlePaths = import.meta.glob('../pages/*/*/*.md');
 

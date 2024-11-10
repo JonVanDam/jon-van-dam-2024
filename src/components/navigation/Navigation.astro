@@ -7,3 +7,33 @@ const { chapterIds } = Astro.props;
 <ul>
   {chapterIds.map((chapter: string, i: number) => <Chapter chapter={chapter} index={i} />)}
 </ul>
+
+<script>
+  // Chapter toggles articles-list show/hidden
+
+  const chapterToggleButtons = [...document.getElementsByClassName('chapter-toggle')];
+
+  chapterToggleButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const index = button.getAttribute('id')?.split('_')[1];
+
+      const articlesList = button.parentNode?.querySelector(`#articles-list_${index}`);
+
+      if (articlesList?.classList.contains('hidden')) {
+        articlesList.classList.remove('hidden');
+      } else {
+        articlesList?.classList.add('hidden');
+      }
+
+      const icon = button.querySelector(`#toggle-icon_${index}`);
+
+      if (icon) {
+        if (icon?.classList.contains('-rotate-90')) {
+          icon.classList.remove('-rotate-90');
+        } else {
+          icon?.classList.add('-rotate-90');
+        }
+      }
+    });
+  });
+</script>

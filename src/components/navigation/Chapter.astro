@@ -12,50 +12,19 @@ const articles = getAllArticles.filter((article) => {
 ---
 
 <li class="mb-6">
-  <astro-chapter data-index={index}>
-    <div id={'toggle-chapter-' + index} class="cursor-pointer flex justify-between items-start">
-      <div class="w-4/5 pointer-events-none font-semibold">{deslugify(chapter)}</div>
-      <!-- <Icon id={'toggle-icon-' + index} class="pointer-events-none mt-1 scale-150" name="basil:caret-down-outline" /> -->
-    </div>
-    <ul id={'articles-' + index} class="mt-2">
-      {
-        articles
-          .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
-          .map((article) => (
-            <li class="py-1 pl-4 border-l border-primary">
-              <a href={article.url}>{article.frontmatter.title}</a>
-            </li>
-          ))
-      }
-    </ul>
-  </astro-chapter>
-</li>
-
-<script>
-  // Create custom HTML element to access index variable in script
-  class AstroChapter extends HTMLElement {
-    connectedCallback() {
-      const index = this.dataset.index;
-      const toggleChapterBtn = document.querySelector(`#toggle-chapter-${index}`);
-
-      toggleChapterBtn?.addEventListener('click', () => {
-        // hide/show articles depending on current state
-        const articles = document.querySelector(`#articles-${index}`);
-        if (articles?.classList.contains('hidden')) {
-          articles.classList.remove('hidden');
-        } else {
-          articles?.classList.add('hidden');
-        }
-        // turn icon depending on current state
-        const icon = document.querySelector(`#toggle-icon-${index}`);
-        if (icon?.classList.contains('-rotate-90')) {
-          icon.classList.remove('-rotate-90');
-        } else {
-          icon?.classList.add('-rotate-90');
-        }
-      });
+  <div id={'toggle-chapter_' + index} class="chapter-toggle cursor-pointer flex justify-between items-start">
+    <div class="w-4/5 pointer-events-none font-semibold">{deslugify(chapter)}</div>
+    <Icon id={'toggle-icon_' + index} class="pointer-events-none mt-1 scale-150" name="basil:caret-down-outline" />
+  </div>
+  <ul id={'articles-list_' + index} class="mt-2">
+    {
+      articles
+        .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
+        .map((article) => (
+          <li class="py-1 pl-4 border-l border-primary">
+            <a href={article.url}>{article.frontmatter.title}</a>
+          </li>
+        ))
     }
-  }
-
-  customElements.define('astro-chapter', AstroChapter);
-</script>
+  </ul>
+</li>
