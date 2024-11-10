@@ -35,7 +35,7 @@ html.dark body.gradient-bg {
 }
 
 .header-bg {
-  @apply bg-primary border-b border-primary shadow-sm;
+  @apply bg-body border-b border-primary shadow-sm;
 }
 
 .header {
@@ -51,7 +51,7 @@ html.dark body.gradient-bg {
 @media screen and (max-width: 768px) {
   .header .header-menu {
     @apply fixed top-16 left-0 right-0 bottom-0 py-4 w-full hidden flex-col items-end px-8;
-    @apply bg-primary;
+    @apply bg-body;
     @apply border-t border-primary;
   }
 
@@ -147,6 +147,29 @@ html.dark .prose div.note {
   @apply bg-yellow-900 border border-yellow-600 text-yellow-100;
 }
 
+/* Modal styling */
+
+.search-modal {
+  @apply fixed z-50 pt-20 left-0 top-0 w-full h-full bg-neutral-900 bg-opacity-60;
+}
+
+.search-modal-content {
+  @apply bg-body mx-auto max-w-[560px] rounded-md border border-primary;
+}
+
+.search-modal-content .search-input {
+  @apply w-full h-10 bg-primary border border-primary rounded-md outline-none;
+  @apply pl-10 pr-4 text-lg;
+}
+
+.search-modal-content .search-input:focus {
+  @apply border-theme;
+}
+
+.search-modal-toggle {
+  @apply bg-primary border border-primary w-44 relative flex items-center gap-2;
+}
+
 /* Scrollbar styling */
 
 ::-webkit-scrollbar {
@@ -155,7 +178,7 @@ html.dark .prose div.note {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-primary;
+  @apply bg-body;
   border-left: 1px solid rgba(100, 100, 100, 0.2);
 }
 

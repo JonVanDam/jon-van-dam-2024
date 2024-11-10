@@ -10,7 +10,7 @@ const projects = await Astro.glob('./*/*.md');
 
 <HtmlLayout pageTitle={pageTitle} onHomePage={true}>
   <header class="w-full">
-    <Header chapterIds={undefined} />
+    <Header chapterIds={undefined} onHomePage={true} />
   </header>
 
   <main class="w-full h-full flex-grow">

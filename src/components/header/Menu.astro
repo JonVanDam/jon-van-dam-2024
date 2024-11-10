@@ -1,16 +1,31 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
 import { Icon } from 'astro-icon/components';
+
+const { onHomePage } = Astro.props;
 ---
 
 <>
-  <a
-    class="button discord"
-    href="https://discord.com/invite/jZ2s8a7cg4"
-    target="_blank"
-  >
+  <!-- {
+    !onHomePage ? (
+      <button id="search-modal-toggle" class="search-modal-toggle">
+        <Icon name="basil:search-outline" class="scale-110 pointer-events-none" />
+        <span class="text-tertiary">Search...</span>
+      </button>
+    ) : null
+  } -->
+  <a class="button discord" href="https://discord.com/invite/jZ2s8a7cg4" target="_blank">
     <Icon name="simple-icons:discord" />
     Join us on Discord
   </a>
   <ThemeToggle />
 </>
+
+<script is:inline>
+  const searchModalToggle = document.querySelector('#search-modal-toggle');
+
+  searchModalToggle?.addEventListener('click', () => {
+    const modal = document.getElementById('search-modal');
+    modal?.classList.remove('hidden');
+  });
+</script>

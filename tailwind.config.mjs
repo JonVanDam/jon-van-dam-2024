@@ -23,13 +23,16 @@ export default {
         },
         //backgrounds
         '.bg-primary': {
-          '@apply bg-[#f5fcff] dark:bg-[#021217]': {},
+          '@apply bg-white dark:bg-zinc-950': {},
         },
         '.bg-secondary': {
           '@apply bg-zinc-200 dark:bg-zinc-700': {},
         },
         '.bg-tertiary': {
           '@apply bg-zinc-300 dark:bg-zinc-600': {},
+        },
+        '.bg-body': {
+          '@apply bg-[#f5fcff] dark:bg-[#16191c]': {},
         },
         //typography
         '.text-primary': {
