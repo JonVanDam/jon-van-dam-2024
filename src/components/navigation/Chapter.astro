@@ -15,7 +15,7 @@ const articles = getAllArticles.filter((article) => {
   <astro-chapter data-index={index}>
     <div id={'toggle-chapter-' + index} class="cursor-pointer flex justify-between items-start">
       <div class="w-4/5 pointer-events-none font-semibold">{deslugify(chapter)}</div>
-      <Icon id={'toggle-icon-' + index} class="pointer-events-none mt-1 scale-150" name="basil:caret-down-outline" />
+      <!-- <Icon id={'toggle-icon-' + index} class="pointer-events-none mt-1 scale-150" name="basil:caret-down-outline" /> -->
     </div>
     <ul id={'articles-' + index} class="mt-2">
       {
