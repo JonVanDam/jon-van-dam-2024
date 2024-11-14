@@ -19,4 +19,12 @@ These templates are *almost* compatible out of the box, but may need some modifi
 
 - Open both <span class="object">SK_Mannequin</span> and <span class="object">SK_UEFN_Mannequin</span>, and make them compatible with one another.
 
+- Stranglely, setting the retarget source asset on the animations to <span class="object">SKM_UEFN_Mannequin</span> breaks the overlay system. 
+
+- Retarget all animation sequences used to <span class="object">SKM_Manny</span>.
+
+- Set the skeleton used for all other animation assets to <span class="object">SK_Mannequin</span>.
+
+- When playing animations authored on <span class="object">SKM_UEFN_Mannequin</span> on Manny or Quinn, the neck and head appear to be sinking into the body. This can be resolved by removing translation data on the bone *Spine_05*.
+
 You should now be able to freely swap out skeleons between animation assets.
