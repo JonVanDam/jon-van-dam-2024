@@ -22,8 +22,12 @@ body {
   box-sizing: border-box;
 }
 
-a:not(.no-hover):not(.button):hover {
-  text-decoration: underline;
+a:hover {
+  text-decoration: none;
+}
+
+a:not(.no-hover):not(.button):not(.article-link-current):hover {
+  @apply text-zinc-950 dark:text-zinc-50 transition-colors;
 }
 
 /* Titles styling */
