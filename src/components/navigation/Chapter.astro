@@ -1,5 +1,5 @@
 ---
-import { deslugify } from '../../util/util';
+import { slugify, deslugify } from '../../util/util';
 import { Icon } from 'astro-icon/components';
 
 const { chapter, index } = Astro.props;
@@ -20,11 +20,17 @@ const articles = getAllArticles.filter((article) => {
     {
       articles
         .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
-        .map((article) => (
-          <li class="py-1 pl-4 border-l border-primary">
-            <a href={article.url}>{article.frontmatter.title}</a>
-          </li>
-        ))
+        .map((article) => {
+          const isCurrentArticle = Astro.url.href.includes(slugify(article.frontmatter.title));
+
+          return (
+            <li class="ml-1 pl-2 border-l border-primary hover:border-secondary transition-all">
+              <a href={article.url} class={`article-link ${isCurrentArticle ? 'article-link-current' : ''}`}>
+                {article.frontmatter.title}
+              </a>
+            </li>
+          );
+        })
     }
   </ul>
 </li>

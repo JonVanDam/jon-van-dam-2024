@@ -16,10 +16,10 @@ export default {
       addComponents({
         //borders
         '.border-primary': {
-          '@apply border-zinc-300 dark:border-zinc-700': {},
+          '@apply border-zinc-200 dark:border-zinc-700': {},
         },
         '.border-secondary': {
-          '@apply border-zinc-500 dark:border-zinc-500': {},
+          '@apply border-zinc-400 dark:border-zinc-500': {},
         },
         //backgrounds
         '.bg-primary': {
@@ -32,7 +32,7 @@ export default {
           '@apply bg-zinc-300 dark:bg-zinc-600': {},
         },
         '.bg-body': {
-          '@apply bg-[#f5fcff] dark:bg-[#16191c]': {},
+          '@apply bg-[#f7f9fa] dark:bg-[#16191c]': {},
         },
         //typography
         '.text-primary': {
@@ -43,6 +43,9 @@ export default {
         },
         '.text-tertiary': {
           '@apply text-zinc-600 dark:text-zinc-400': {},
+        },
+        '.text-negative': {
+          '@apply text-zinc-100 dark:text-zinc-800': {},
         },
       });
     },

@@ -25,11 +25,14 @@ const projects = await Astro.glob('./*/*.md');
             .sort((a, b) => (a.frontmatter.title.localeCompare(b.frontmatter.title) ? -1 : 1))
             .map((project) => {
               return (
-                <div class="shadow-md rounded-lg overflow-hidden w-[300px] sm:w-[400px]">
-                  <a href={project.url}>
-                    <img src={project.frontmatter.thumbnail} class="hover:opacity-80 transition-all" />
-                  </a>
-                </div>
+                <a href={project.url}>
+                  <div class="shadow-md rounded-lg w-[300px] h-[170] sm:w-[400px] sm:h-[230px] overflow-hidden">
+                    <img
+                      src={project.frontmatter.thumbnail}
+                      class="hover:opacity-80 transition-all h-full w-full object-cover"
+                    />
+                  </div>
+                </a>
               );
             })
         }
@@ -37,5 +40,5 @@ const projects = await Astro.glob('./*/*.md');
     </div>
   </main>
 
-  <Footer />
+  <Footer onHomePage={true} />
 </HtmlLayout>
