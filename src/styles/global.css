@@ -103,6 +103,17 @@ html.dark body.gradient-bg {
   background-color: #5865f2cc;
 }
 
+/* PROJECT NAVIGATION */
+
+a.article-link {
+  @apply text-secondary text-sm block px-2 py-[.3em] rounded-md;
+  @apply transition-colors;
+}
+
+a.article-link-current {
+  @apply text-white bg-theme hover:text-white hover:bg-theme-hover;
+}
+
 /* PROSE */
 
 .prose {
