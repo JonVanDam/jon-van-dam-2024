@@ -9,8 +9,6 @@ import TableOfContents from '../components/table-of-contents/TableOfContents.ast
 
 const { frontmatter, headings } = Astro.props;
 
-const sideBarWidth = 300;
-
 const projectId = frontmatter.url.split('/')[1];
 
 const getAllArticlePaths = import.meta.glob('../pages/*/*/*.md');
@@ -31,11 +29,8 @@ for (const path in getAllArticlePaths) {
   <header class="header-wrap bg-body border-b border-primary shadow-sm">
     <Header chapterIds={chapterIds} onHomePage={false} />
   </header>
-  <div class="mt-16 flex-1 max-w-[90rem] mx-auto px-8">
-    <div
-      class="hidden md:block fixed inset-0 top-16 left-[max(0px,calc(50%-45rem))] right-auto py-6 pb-10 pl-8 pr-6 overflow-y-auto border-r border-primary"
-      style={{ width: sideBarWidth + 'px' }}
-    >
+  <div class="mt-14 flex-1 max-w-[90rem] mx-auto px-8">
+    <div class="navigation-wrap">
       <Navigation chapterIds={chapterIds} />
     </div>
     <div class="pl-0 md:pl-80 xl:pr-72" style={{ minHeight: 'calc(100vh - 64px)' }}>
@@ -53,7 +48,7 @@ for (const path in getAllArticlePaths) {
     </div>
     {
       headings.length ? (
-        <aside class="hidden xl:block fixed inset-0 w-[300px] top-16 right-0 left-auto py-10 pb-10 pl-4 pr-6 overflow-auto z-20 text-sm">
+        <aside class="table-of-contents-wrap">
           <TableOfContents headings={headings} />
         </aside>
       ) : null
