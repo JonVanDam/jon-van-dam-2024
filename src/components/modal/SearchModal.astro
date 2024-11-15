@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { deslugify, slugify } from '../../util/util';
+import { deslugify } from '../../util/util';
 
 const { projectId } = Astro.props;
 
@@ -13,36 +13,70 @@ const articles = getAllArticles.filter((article) => {
 
 <modal id="search-modal" class="search-modal hidden">
   <div class="search-modal-content">
-    <div class="p-2 w-full relative">
-      <input autofocus class="search-input" placeholder={'Search ' + deslugify(projectId) + '...'} />
+    <div class="p-2 w-full relative border-b border-primary">
+      <input autofocus id="search-input" class="search-input" placeholder={'Search ' + deslugify(projectId) + '...'} />
       <Icon name="basil:search-outline" class="absolute top-5 left-5 scale-125 pointer-events-none" />
     </div>
-    <div class="p-2">
-      <ul class="max-h-[400px] overflow-y-auto">
-        {
-          articles.map((article) => {
-            return (
-              <li class="py-2 px-1">
-                <a href={article.url}>{article.frontmatter.title}</a>
-              </li>
-            );
-          })
-        }
-      </ul>
+    <div class="px-2">
+      <ul class="max-h-[400px] overflow-y-auto" id="results-list"></ul>
     </div>
   </div>
 </modal>
 
-<script is:inline>
-  // Register click outside of modal -> close modal
+<script is:inline define:vars={{ articles }}>
+  // Define HTML elements in JS
+  const input = document.getElementById('search-input');
+
+  const resultsList = document.getElementById('results-list');
+
+  const modal = document.getElementById('search-modal');
+
+  // Filter articles based on input (for now only title, and no debounce)
+
+  input.addEventListener('input', (evt) => {
+    let inputValue = evt.target.value;
+
+    if (inputValue === '') {
+      resultsList.innerHTML = '';
+      return;
+    }
+
+    const filteredArticles = articles.filter((article) => {
+      return article.frontmatter.title.toLowerCase().includes(inputValue.toLowerCase());
+    });
+
+    resultsList.innerHTML = '';
+
+    filteredArticles.forEach((article) => {
+      resultsList.insertAdjacentHTML(
+        'beforeend',
+        `
+        <li class="py-2 px-1">
+          <a href="${article.url}">${article.frontmatter.title}</a>
+        </li>
+        `,
+      );
+    });
+  });
+
+  const closeModal = () => {
+    input.value = '';
+    modal.classList.add('hidden');
+  };
+
+  // Register click outside of modal, close-button or ESC key -> close modal
 
   window.addEventListener('click', (evt) => {
     const target = evt.target;
 
-    const modal = document.getElementById('search-modal');
-
     if (target == modal) {
-      modal.classList.add('hidden');
+      closeModal();
+    }
+  });
+
+  window.addEventListener('keydown', (evt) => {
+    if (evt.code === 'Escape') {
+      closeModal();
     }
   });
 </script>
