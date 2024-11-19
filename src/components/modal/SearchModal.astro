@@ -13,12 +13,12 @@ const articles = getAllArticles.filter((article) => {
 
 <modal id="search-modal" class="search-modal hidden">
   <div class="search-modal-content">
-    <div class="p-2 w-full relative border-b border-primary">
+    <div class="p-2 w-full relative">
       <input autofocus id="search-input" class="search-input" placeholder={'Search ' + deslugify(projectId) + '...'} />
       <Icon name="basil:search-outline" class="absolute top-5 left-5 scale-125 pointer-events-none" />
     </div>
     <div class="px-2">
-      <ul class="max-h-[400px] overflow-y-auto" id="results-list"></ul>
+      <ul class="max-h-[400px] overflow-y-auto border-t border-primary" id="results-list"></ul>
     </div>
   </div>
 </modal>
@@ -37,7 +37,7 @@ const articles = getAllArticles.filter((article) => {
     let inputValue = evt.target.value;
 
     if (inputValue === '') {
-      resultsList.innerHTML = '';
+      resultsList.innerHTML = ``;
       return;
     }
 
@@ -47,16 +47,25 @@ const articles = getAllArticles.filter((article) => {
 
     resultsList.innerHTML = '';
 
-    filteredArticles.forEach((article) => {
+    if (filteredArticles.length > 0) {
+      filteredArticles.forEach((article) => {
+        resultsList.insertAdjacentHTML(
+          'beforeend',
+          `
+          <li class="py-2 px-1">
+            <a href="${article.url}">${article.frontmatter.title}</a>
+            </li>
+            `,
+        );
+      });
+    } else {
       resultsList.insertAdjacentHTML(
         'beforeend',
         `
-        <li class="py-2 px-1">
-          <a href="${article.url}">${article.frontmatter.title}</a>
-        </li>
-        `,
+      <p class="py-4 text-center text-secondary">No results</p>
+      `,
       );
-    });
+    }
   });
 
   const closeModal = () => {
