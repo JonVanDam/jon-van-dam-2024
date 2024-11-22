@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Grapple Component'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-thumbnail: /thumbnails/gc-thumbnail.jpg
+thumbnail: /thumbnails/gc-thumbnail.png
 hero: /hero/gc-hero.jpg
 sortOrder: 1
 seoTitle: ''

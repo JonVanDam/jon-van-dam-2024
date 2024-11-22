@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Executable Objects'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-thumbnail: /thumbnails/eo-thumbnail.jpg
+thumbnail: /thumbnails/eo-thumbnail.png
 sortOrder: 1
 seoTitle: ''
 seoKeywords: []
