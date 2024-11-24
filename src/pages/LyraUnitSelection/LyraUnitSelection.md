@@ -3,8 +3,8 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Executable Objects'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-thumbnail: /thumbnails/lus-thumbnail.png
-sortOrder: 3
+thumbnail: /thumbnails/lus-thumbnail-cs.png
+sortOrder: 11
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
