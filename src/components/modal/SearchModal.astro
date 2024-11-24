@@ -6,9 +6,17 @@ const { projectId } = Astro.props;
 
 const getAllArticles = await Astro.glob('../../pages/*/*/*.md');
 
-const articles = getAllArticles.filter((article) => {
-  return article.url?.includes(projectId);
-});
+const articles = getAllArticles
+  .filter((article) => {
+    return article.url?.includes(projectId);
+  })
+  .map((article) => {
+    return {
+      title: article.frontmatter.title,
+      url: article.url,
+      content: article.rawContent(),
+    };
+  });
 ---
 
 <modal id="search-modal" class="search-modal hidden">
@@ -31,9 +39,21 @@ const articles = getAllArticles.filter((article) => {
 
   const modal = document.getElementById('search-modal');
 
-  // Filter articles based on input (for now only title, and no debounce)
+  // Define a debounce function
 
-  input.addEventListener('input', (evt) => {
+  const debounce = (callback, wait) => {
+    let timeoutId = null;
+    return (...args) => {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        callback(...args);
+      }, wait);
+    };
+  };
+
+  // Actual onChange event -> filter articles based on search-input string value
+
+  const onInputChange = (evt) => {
     let inputValue = evt.target.value;
 
     if (inputValue === '') {
@@ -41,9 +61,26 @@ const articles = getAllArticles.filter((article) => {
       return;
     }
 
-    const filteredArticles = articles.filter((article) => {
-      return article.frontmatter.title.toLowerCase().includes(inputValue.toLowerCase());
-    });
+    const filteredArticles = articles
+      .filter((article) => {
+        return (
+          article.title.toLowerCase().includes(inputValue.toLowerCase()) ||
+          article.content.toLowerCase().includes(inputValue.toLowerCase())
+        );
+      })
+      .map((article) => {
+        let extendedMatch = '';
+        if (article.content.toLowerCase().includes(inputValue.toLowerCase())) {
+          const match = article.content.toLowerCase().indexOf(inputValue.toLowerCase());
+          extendedMatch = article.content.slice(match - 40 || 0, match + 40);
+        } else {
+          extendedMatch = '';
+        }
+        return {
+          ...article,
+          match: extendedMatch ? '...' + extendedMatch + '...' : '',
+        };
+      });
 
     resultsList.innerHTML = '';
 
@@ -53,23 +90,28 @@ const articles = getAllArticles.filter((article) => {
           'beforeend',
           `
           <li class="py-2 px-1">
-            <a href="${article.url}">${article.frontmatter.title}</a>
-            </li>
-            `,
+            <a href="${article.url}">
+              <div>${article.title}</div>
+              <div class="text-sm text-tertiary">${article.match}</div>
+            </a>
+          </li>
+          `,
         );
       });
     } else {
-      resultsList.insertAdjacentHTML(
-        'beforeend',
-        `
-      <p class="py-4 text-center text-secondary">No results</p>
-      `,
-      );
+      resultsList.insertAdjacentHTML('beforeend', `<p class="py-4 text-center text-secondary">No results</p>`);
     }
-  });
+  };
+
+  // Add debounced function to input-element
+
+  input.addEventListener('input', debounce(onInputChange, 350));
+
+  // Close modal helper function
 
   const closeModal = () => {
     input.value = '';
+    resultsList.innerHTML = '';
     modal.classList.add('hidden');
   };
 

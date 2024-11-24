@@ -190,6 +190,7 @@ html.dark .prose div.note {
 }
 
 .search-modal-toggle {
+  @apply py-1 px-4 text-sm;
   @apply bg-primary border border-primary w-44 relative flex items-center gap-2;
 }
 
