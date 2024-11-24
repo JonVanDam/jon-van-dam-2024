@@ -4,7 +4,7 @@ title: 'Executable Objects'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
 thumbnail: /thumbnails/eo-thumbnail.png
-sortOrder: 1
+sortOrder: 0
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
