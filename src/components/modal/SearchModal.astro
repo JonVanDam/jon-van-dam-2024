@@ -39,6 +39,8 @@ const articles = getAllArticles
 
   const modal = document.getElementById('search-modal');
 
+  // Some helper functions
+
   // Define a debounce function
 
   const debounce = (callback, wait) => {
@@ -49,6 +51,45 @@ const articles = getAllArticles
         callback(...args);
       }, wait);
     };
+  };
+
+  // Get extended substring from article, around the match with the search input value
+  const getExtendedMatch = (content, inputValue) => {
+    // First determine match index and length
+    const matchIndex = content.toLowerCase().indexOf(inputValue.toLowerCase());
+    const matchLength = inputValue.length;
+
+    // Find the substrings before and after the match + the match itself separately for styling
+    const preMatch = content.slice(matchIndex - 40, matchIndex);
+    const match = content.slice(matchIndex, matchIndex + matchLength);
+    const postMatch = content.slice(matchIndex + matchLength, matchIndex + matchLength + 40);
+
+    const extendedMatch = `
+            <span>...${preMatch}</span>
+            <span class="font-bold">${match}</span>
+            <span>${postMatch}...</span>
+          `;
+    return extendedMatch;
+  };
+
+  // Find the nearest header before the match
+  const getNearestHeaderForMatch = (content, inputValue, url) => {
+    const matchIndex = content.toLowerCase().indexOf(inputValue.toLowerCase());
+
+    // First split the article content (up until the match) on every line break
+    const splittedArticleOnLineBreaks = content.slice(0, matchIndex).split(`\n`);
+    // Filter out the headers -> where the line starts with ##
+    const headers = splittedArticleOnLineBreaks?.filter((string) => string.includes('##')) || [];
+    // The last header is the header directly before our match
+    const nearestHeaderToMatch = headers.length ? headers[headers.length - 1] : null;
+
+    if (!nearestHeaderToMatch) {
+      return null;
+    }
+    // Perform some string operations to add a slug for this header to the article url
+    const trimmedHeader = nearestHeaderToMatch.slice(nearestHeaderToMatch.indexOf(' ') + 1);
+    const urlWithHeader = url + '#' + trimmedHeader.replace(/\s+/g, '-').toLowerCase();
+    return urlWithHeader;
   };
 
   // Actual onChange event -> filter articles based on search-input string value
@@ -69,17 +110,21 @@ const articles = getAllArticles
         );
       })
       .map((article) => {
-        let extendedMatch = '';
+        // Add extra properties to the article to display in the search-results
+        // -> only if we have a content match, not if we have a title match
+
         if (article.content.toLowerCase().includes(inputValue.toLowerCase())) {
-          const match = article.content.toLowerCase().indexOf(inputValue.toLowerCase());
-          extendedMatch = article.content.slice(match - 40 || 0, match + 40);
+          const extendedMatch = getExtendedMatch(article.content, inputValue);
+          const urlWithHeader = getNearestHeaderForMatch(article.content, inputValue, article.url);
+
+          return {
+            ...article,
+            match: extendedMatch ? extendedMatch : null,
+            url: urlWithHeader ? urlWithHeader : article.url,
+          };
         } else {
-          extendedMatch = '';
+          return article;
         }
-        return {
-          ...article,
-          match: extendedMatch ? '...' + extendedMatch + '...' : '',
-        };
       });
 
     resultsList.innerHTML = '';
@@ -92,7 +137,7 @@ const articles = getAllArticles
           <li class="py-2 px-1">
             <a href="${article.url}">
               <div>${article.title}</div>
-              <div class="text-sm text-tertiary">${article.match}</div>
+              ${article.match ? `<div class="text-sm text-tertiary">${article.match}</div>` : ``}
             </a>
           </li>
           `,

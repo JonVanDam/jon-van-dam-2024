@@ -12,7 +12,7 @@ const { chapterIds, onHomePage } = Astro.props;
 
     <div id="header-menu" class="header-menu overflow-y-auto">
       <!-- Only show navigation in dropdown menu when chapterIds exist and on small screen -->
-      <div class="w-full block md:hidden border-b border-primary">
+      <div class={`w-full block md:hidden ${onHomePage ? '' : 'border-b border-primary'}`}>
         {chapterIds ? <Navigation chapterIds={chapterIds} /> : null}
       </div>
       <Menu onHomePage={onHomePage} />

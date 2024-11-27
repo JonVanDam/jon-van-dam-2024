@@ -173,11 +173,12 @@ html.dark .prose div.note {
 /* Modal styling */
 
 .search-modal {
-  @apply fixed z-50 pt-20 left-0 top-0 w-full h-full bg-neutral-900 bg-opacity-60;
+  @apply fixed z-50 pt-0 sm:pt-20 left-0 top-0 w-full h-full bg-neutral-900 bg-opacity-60;
 }
 
 .search-modal-content {
-  @apply bg-body mx-auto max-w-[560px] rounded-md border border-primary;
+  @apply bg-body mx-auto max-w-[560px] border border-primary;
+  @apply rounded-t-none sm:rounded-t-md rounded-b-md;
 }
 
 .search-modal-content .search-input {
