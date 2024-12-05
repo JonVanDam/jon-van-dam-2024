@@ -48,6 +48,11 @@ a.button {
   border-width: 0;
 }
 
+a.cta {
+  font-weight: 600;
+  @apply flex items-center gap-2;
+}
+
 button.default {
   @apply border border-primary;
 }

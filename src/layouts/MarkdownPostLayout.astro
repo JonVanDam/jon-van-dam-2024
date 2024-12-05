@@ -25,9 +25,9 @@ for (const path in getAllArticlePaths) {
 }
 ---
 
-<HtmlLayout pageTitle={frontmatter.title}>
+<HtmlLayout pageTitle={frontmatter.title} onHomePage={false}>
   <header class="header-wrap bg-body border-b border-primary shadow-sm">
-    <Header chapterIds={chapterIds} onHomePage={false} />
+    <Header project={frontmatter} chapterIds={chapterIds} />
   </header>
   <div class="mt-14 flex-1 max-w-[90rem] mx-auto px-8">
     <div class="navigation-wrap">
@@ -43,7 +43,7 @@ for (const path in getAllArticlePaths) {
             <slot />
           </Prose>
         </main>
-        <Footer />
+        <Footer project={frontmatter} />
       </div>
     </div>
     {

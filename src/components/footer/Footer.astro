@@ -3,10 +3,10 @@ import Social from './Social.astro';
 
 const currentYear = new Date().getFullYear();
 
-const { onHomePage } = Astro.props;
+const { project } = Astro.props;
 ---
 
-<footer class={`w-full h-[180px] ${!onHomePage ? 'border-t border-primary' : ''}`}>
+<footer class={`w-full h-[180px] ${project ? 'border-t border-primary' : ''}`}>
   <div class="max-w-[90rem] mx-auto">
     <div class="max-w-[400px] mx-auto px-8 text-secondary text-sm">
       <div class="border-b border-primary mx-auto">

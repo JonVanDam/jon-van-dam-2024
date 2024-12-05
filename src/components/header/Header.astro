@@ -3,7 +3,7 @@ import Menu from './Menu.astro';
 import MenuToggle from './MenuToggle.astro';
 import Navigation from '../navigation/Navigation.astro';
 
-const { chapterIds, onHomePage } = Astro.props;
+const { project, chapterIds } = Astro.props;
 ---
 
 <div class="h-full max-w-[90rem] mx-auto">
@@ -12,10 +12,10 @@ const { chapterIds, onHomePage } = Astro.props;
 
     <div id="header-menu" class="header-menu overflow-y-auto">
       <!-- Only show navigation in dropdown menu when chapterIds exist and on small screen -->
-      <div class={`w-full block md:hidden ${onHomePage ? '' : 'border-b border-primary'}`}>
+      <div class={`w-full block md:hidden ${!project ? '' : 'border-b border-primary'}`}>
         {chapterIds ? <Navigation chapterIds={chapterIds} /> : null}
       </div>
-      <Menu onHomePage={onHomePage} />
+      <Menu project={project} />
     </div>
 
     <MenuToggle />

@@ -6,8 +6,8 @@ import HtmlLayout from './HtmlLayout.astro';
 const { pageTitle } = Astro.props;
 ---
 
-<HtmlLayout pageTitle={pageTitle}>
-  <Header chapterIds={undefined} />
+<HtmlLayout pageTitle={pageTitle} onHomePage={false}>
+  <Header project={undefined} chapterIds={undefined} />
   <main class="mt-14 w-full h-full">
     <slot />
   </main>

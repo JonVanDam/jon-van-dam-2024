@@ -90,17 +90,24 @@ html.dark body.gradient-bg {
   display: block;
 }
 
-/* HEADER MENU DISCORD BUTTON - add specific color and styling */
+/* HEADER MENU BUTTONS - add specific colors */
 
 .header a.discord {
-  background-color: #5865f2;
   color: white;
-  font-weight: 600;
-  @apply flex items-center gap-2;
+  background-color: #5865f2;
 }
 
 .header a.discord:hover {
   background-color: #5865f2cc;
+}
+
+.header a.marketplace {
+  color: white;
+  background-color: #3b3b3b;
+}
+
+.header a.marketplace:hover {
+  background-color: #3b3b3bcc;
 }
 
 /* MARKDOWNPOSTLAYOUT */
