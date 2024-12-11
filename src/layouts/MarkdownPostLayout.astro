@@ -11,6 +11,12 @@ const { frontmatter, headings } = Astro.props;
 
 const projectId = frontmatter.url.split('/')[1];
 
+const projects = await Astro.glob('../pages/*/*.md');
+
+const project = projects.find((project) => {
+  return project.url?.split('/')[1] === projectId;
+});
+
 const getAllArticlePaths = import.meta.glob('../pages/*/*/*.md');
 
 let chapterIds: string[] = [];
@@ -27,7 +33,7 @@ for (const path in getAllArticlePaths) {
 
 <HtmlLayout pageTitle={frontmatter.title} onHomePage={false}>
   <header class="header-wrap bg-body border-b border-primary shadow-sm">
-    <Header project={frontmatter} chapterIds={chapterIds} />
+    <Header project={project} chapterIds={chapterIds} />
   </header>
   <div class="mt-14 flex-1 max-w-[90rem] mx-auto px-8">
     <div class="navigation-wrap">

@@ -13,8 +13,8 @@ const { project } = Astro.props;
           <Icon name="basil:search-outline" class="scale-110 pointer-events-none" />
           <span class="text-tertiary">Search...</span>
         </button>
-        {project.marketplaceUrl ? (
-          <a class="button cta marketplace" href={project.marketplaceUrl} target="_blank">
+        {project.frontmatter.marketplaceUrl ? (
+          <a class="button cta marketplace" href={project.frontmatter.marketplaceUrl} target="_blank">
             <Icon name="simple-icons:unrealengine" />
             Get on marketplace
           </a>
