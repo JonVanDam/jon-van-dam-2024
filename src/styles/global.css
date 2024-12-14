@@ -112,9 +112,10 @@ html.dark body.gradient-bg {
 
 /* MARKDOWNPOSTLAYOUT */
 
-div.navigation-wrap {
+div.left-sidebar-wrap {
   @apply hidden md:block fixed inset-0 w-[300px] top-14 left-[max(0px,calc(50%-45rem))] right-auto;
-  @apply py-6 pb-10 pl-8 pr-6 overflow-y-auto border-r border-primary;
+  @apply border-r border-primary;
+  @apply overflow-y-auto;
 }
 
 aside.table-of-contents-wrap {
@@ -123,6 +124,23 @@ aside.table-of-contents-wrap {
 }
 
 /* PROJECT NAVIGATION */
+
+div.left-sidebar-header {
+  @apply sticky top-0 z-10;
+}
+
+div.left-sidebar-title {
+  @apply pl-8 pr-6 w-full pt-6 pb-4;
+  @apply bg-body;
+}
+
+div.left-sidebar-gradient {
+  @apply h-8 bg-gradient-to-b from-[#f7f9fa] dark:from-[#16191c];
+}
+
+div.navigation-wrap {
+  @apply pl-8 pr-6 pb-6;
+}
 
 a.article-link {
   @apply text-secondary text-sm block px-2 py-[.3em] rounded-md;
