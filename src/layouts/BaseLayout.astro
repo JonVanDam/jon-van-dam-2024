@@ -7,7 +7,7 @@ const { pageTitle } = Astro.props;
 ---
 
 <HtmlLayout pageTitle={pageTitle} onHomePage={false}>
-  <Header project={undefined} chapterIds={undefined} />
+  <Header projectId={undefined} project={undefined} chapterIds={undefined} />
   <main class="mt-14 w-full h-full">
     <slot />
   </main>
