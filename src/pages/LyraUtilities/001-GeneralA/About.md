@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/MarkdownPostLayout.astro
-title: About the Lyra Unit Selection plugin
+title: About the Lyra Utilities plugin 
 createdAt: '2024-11-11'
 updatedAt: '2024-11-11'
 sortOrder: 1
