@@ -33,7 +33,7 @@ for (const path in getAllArticlePaths) {
 
 <HtmlLayout pageTitle={frontmatter.title} onHomePage={false}>
   <header class="header-wrap bg-body border-b border-primary shadow-sm">
-    <Header project={project} chapterIds={chapterIds} />
+    <Header projectId={projectId} project={project} chapterIds={chapterIds} />
   </header>
   <div class="mt-14 flex-1 max-w-[90rem] mx-auto px-8">
     <div class="left-sidebar-wrap">
@@ -51,7 +51,7 @@ for (const path in getAllArticlePaths) {
           ) : null
         }
         <div class="navigation-wrap">
-          <Navigation chapterIds={chapterIds} />
+          <Navigation projectId={projectId} chapterIds={chapterIds} />
         </div>
       </div>
     </div>

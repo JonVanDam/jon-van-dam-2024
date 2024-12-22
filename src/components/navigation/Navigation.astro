@@ -1,11 +1,11 @@
 ---
 import Chapter from './Chapter.astro';
 
-const { chapterIds } = Astro.props;
+const { projectId, chapterIds } = Astro.props;
 ---
 
 <ul>
-  {chapterIds.map((chapter: string, i: number) => <Chapter chapter={chapter} index={i} />)}
+  {chapterIds.map((chapter: string, i: number) => <Chapter projectId={projectId} chapter={chapter} index={i} />)}
 </ul>
 
 <script>

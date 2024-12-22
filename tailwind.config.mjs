@@ -8,6 +8,9 @@ export default {
         theme: '#37786c',
         'theme-hover': '#37786ccc',
       },
+      screens: {
+        mobile: '440px',
+      },
     },
   },
   plugins: [

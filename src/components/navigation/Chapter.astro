@@ -2,12 +2,12 @@
 import { slugify, deslugify } from '../../util/util';
 import { Icon } from 'astro-icon/components';
 
-const { chapter, index } = Astro.props;
+const { projectId, chapter, index } = Astro.props;
 
 const getAllArticles = await Astro.glob('../../pages/*/*/*.md');
 
 const articles = getAllArticles.filter((article) => {
-  return article.url?.includes(chapter);
+  return article.url?.includes(chapter) && article.url?.includes(projectId);
 });
 ---
 
