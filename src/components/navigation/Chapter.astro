@@ -25,7 +25,7 @@ const articles = getAllArticles.filter((article) => {
 
           return (
             <li class="ml-1 pl-2 border-l border-primary hover:border-secondary transition-all">
-              <a href={article.url} class={`article-link ${isCurrentArticle ? 'article-link-current' : ''}`}>
+              <a href={article.url} class={`link article-link ${isCurrentArticle ? 'article-link-current' : ''}`}>
                 {article.frontmatter.title}
               </a>
             </li>

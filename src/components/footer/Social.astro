@@ -3,7 +3,7 @@ const { platform, label, link } = Astro.props;
 import { Icon } from 'astro-icon/components';
 ---
 
-<a href={link} target="_blank" class="flex items-center gap-2 truncate">
+<a href={link} target="_blank" class="link flex items-center gap-2 truncate">
   <Icon name={`simple-icons:${platform}`} />
   {label}
 </a>
