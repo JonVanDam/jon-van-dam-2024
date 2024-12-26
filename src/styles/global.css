@@ -154,7 +154,7 @@ a.article-link-current {
 /* PROSE */
 
 .prose {
-  max-width: 768px;
+  max-width: 768px !important;
   --tw-prose-body: #000;
   --tw-prose-quotes: #555;
 }
