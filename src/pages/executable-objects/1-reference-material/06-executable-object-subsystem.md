@@ -13,7 +13,7 @@ seoDescription: ''
 
 For more information on Game Instance Subsystems, please consult the <a href="https://docs.unrealengine.com/5.2/en-US/programming-subsystems-in-unreal-engine/" target="_blank">Unreal Engine documentation on the topic</a>.
 
-![](../../../assets/executable-objects/SubSystem1-large.jpg)
+<embed src="/src/assets/executable-objects/slide-subsystem.pdf" width="100%" height="500px" toolbar=0 frameborder="0" scrolling="no" />
 
 You can access the Subsystem by adding a <span class="function">Get Executable Object Subsystem</span> node. From here, you can use the Subsystem to look for any Executable Objects that are currently active.
 

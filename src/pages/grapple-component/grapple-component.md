@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Grapple Component'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-thumbnail: /thumbnails/gc-thumbnail.png
+thumbnail: /thumbnails/gc-thumbnail.jpg
 hero: /hero/gc-hero.jpg
 marketplaceUrl: https://www.fab.com/listings/929dbe39-a6b0-4e2a-b167-b6dc60a604d8
 sortOrder: 1
