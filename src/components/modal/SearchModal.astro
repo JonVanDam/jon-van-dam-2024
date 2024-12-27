@@ -25,9 +25,7 @@ const articles = getAllArticles
       <input autofocus id="search-input" class="search-input" placeholder={'Search ' + deslugify(projectId) + '...'} />
       <Icon name="basil:search-outline" class="absolute top-5 left-5 scale-125 pointer-events-none" />
     </div>
-    <div class="px-2">
-      <ul class="max-h-[400px] overflow-y-auto border-t border-primary" id="results-list"></ul>
-    </div>
+    <ul class="max-h-[400px] overflow-y-auto border-t border-primary" id="results-list"></ul>
   </div>
 </modal>
 
@@ -134,7 +132,7 @@ const articles = getAllArticles
         resultsList.insertAdjacentHTML(
           'beforeend',
           `
-          <li class="py-2 px-1">
+          <li class="py-2 px-2 hover:bg-secondary transition-colors">
             <a href="${article.url}">
               <div>${article.title}</div>
               ${article.match ? `<div class="text-sm text-tertiary">${article.match}</div>` : ``}

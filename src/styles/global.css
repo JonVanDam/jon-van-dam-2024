@@ -154,8 +154,39 @@ a.article-link-current {
 /* PROSE */
 
 .prose {
-  max-width: 768px;
+  max-width: 768px !important;
   --tw-prose-body: #000;
+  --tw-prose-quotes: #555;
+}
+
+html.dark .prose {
+  --tw-prose-body: #fff;
+  --tw-prose-headings: #fff;
+  --tw-prose-bold: #fff;
+  --tw-prose-links: #fff;
+  --tw-prose-quotes: #bbb;
+}
+
+.prose h2 {
+  @apply border-b border-secondary;
+}
+
+.prose a {
+  text-decoration: none;
+  color: #2c83d4;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+  color: #2c83d4;
+}
+
+html.dark .prose a {
+  color: #6fbdeb;
+}
+
+html.dark .prose a:hover {
+  color: #6fbdeb;
 }
 
 .prose span.function {
@@ -168,18 +199,9 @@ a.article-link-current {
   font-style: italic;
 }
 
-.prose div.note {
-  margin: 1.4em 3em;
-  padding: 1em;
-  @apply rounded-md;
-  @apply bg-yellow-100 border border-yellow-300 text-yellow-900;
-}
-
-html.dark .prose {
-  --tw-prose-body: #fff;
-  --tw-prose-headings: #fff;
-  --tw-prose-bold: #fff;
-  --tw-prose-links: #fff;
+.prose span.variable {
+  color: #d59c00;
+  font-style: italic;
 }
 
 html.dark .prose span.function {
@@ -189,6 +211,13 @@ html.dark .prose span.function {
 html.dark .prose span.object {
   color: #d381ff;
   font-style: italic;
+}
+
+.prose div.note {
+  margin: 1.4em 3em;
+  padding: 1em;
+  @apply rounded-md;
+  @apply bg-yellow-100 border border-yellow-300 text-yellow-900;
 }
 
 html.dark .prose div.note {
