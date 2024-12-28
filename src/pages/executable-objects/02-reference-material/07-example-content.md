@@ -13,7 +13,7 @@ seoDescription: ''
 
 **In this article, we will go over the contents of the demo project.**
 
-# The Demo Character
+## The Demo Character
 
 In the Content/Demo folder, there is a Blueprint named <span class="object">DemoCharacter</span>. Its Graph has some example nodes laid out.
 
@@ -23,31 +23,31 @@ In the Content/Demo folder, there is a Blueprint named <span class="object">Demo
 
 
 
-# Gradually Updating Variables
+## Gradually Updating Variables
 
 A simple use case of Executable Objects, is gradually changing the value of a variable. To do this, you can use any of the <span class="function">Gradually Update Variable</span> nodes.
 
 ![](../../../assets/executable-objects/GraduallyUpdate-large.jpg)
 
-# Gradually Updating Material Parameters
+## Gradually Updating Material Parameters
 
 As another example, the Demo Character has a 'Material Parameter Lerp' node that will change the color of the Character.
 
 ![](../../../assets/executable-objects/Material-large.jpg)
 
-# Repositioning
+## Repositioning
 
 You can use Executable Objects to reposition scene components gradually. This functionality can move characters from one place to another. 
 
 ![](../../../assets/executable-objects/Repositioning-large.jpg)
 
-# Update Velocity
+## Update Velocity
 
 Similarly, you can create a 'Dash' or 'Push' effect by updating the velocity of a Character.
 
 ![](../../../assets/executable-objects/UpdateVelocity-large.jpg)
 
-# Abilities
+## Abilities
 
 You can also use Executable Objects to create simple abilities. For example, the Demo Project has a *Sprint* ability and a *Charged Jump* ability.
 
@@ -58,7 +58,7 @@ You can also use Executable Objects to create simple abilities. For example, the
 * Create a new Blueprint Class with EXE_Ability as the parent Class
 * Override the following functions: <span class="function">On Execution Start</span> and <span class="function">Input Release</span>
 
-# Status Effects
+## Status Effects
 
 Internally, these abilities apply a set of Status Effects while they are active. Status Effects  can, for example, increase the move speed of the character, and widen the field of view of the camera.
 
@@ -98,10 +98,10 @@ The abilities <span class="object">AB_Sprint</span> and <span class="object">AB_
 
 ![](../../../assets/executable-objects/sprintAttributes-large.jpg)
 
-# Interactions
+## Interactions
 
 You can also use Executable Objects to create interactions between different actors. For example, the Demo Character has a regular takedown move, and a stealth takedown. Depending on whether the other Character is facing us we will activate the stealth takedown or the regular takedown.  
 
 ![](../../../assets/executable-objects/Interactions-large.jpg)
 
-These are just some of the features you could build using Executable Objects. Their main strength, is that they are Blueprintable and fully customizable. Want to know how to make your own Executable Objects? Have a look at the [Tutorials](/executable-objects/2-tutorials/01-creating-an-executable-object)!
+These are just some of the features you could build using Executable Objects. Their main strength, is that they are Blueprintable and fully customizable. Want to know how to make your own Executable Objects? Have a look at the [Tutorials](/executable-objects/01-tutorials/01-creating-an-executable-object)!

@@ -13,7 +13,7 @@ Executable Objects come in different classes, depending on the functionality you
 
 The <span class="object">ExecutableObject</span>  base class is parent to the <span class="object">ExecutableObjectWithDuration</span>   class, which is in turn the parent of <span class="object">ProgressObject</span>. Each of these classes gradually adds more functionality that users can include or leave out where needed. This article contains an explanation on each of these classes, and general advice on when to use each one.
 
-![](../../../assets/executable-objects/BaseClassesAdvanced-large.jpg)
+<embed src="/src/assets/executable-objects/slide-classes.pdf" width="100%" height="500px" toolbar=0 frameborder="0" scrolling="no" />
 
 ## Executable Object
 

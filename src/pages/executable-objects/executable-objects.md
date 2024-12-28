@@ -24,9 +24,9 @@ You can use Executable Objects to build your own custom actions that happen over
 * Abilities
 * Status Effects
 * Updating velocity (e.g. 'push' or 'dash' mechanics)
-* Interactions(e.g. healing animations, throws, executions, ...)
+* Interactions (e.g. healing animations, throws, executions, ...)
 
-**Essentially, any action or process that happens over time.** All of the examples mentioned above, can be found in the [example content](/executable-objects/1-reference-material/07-example-content).
+**Essentially, any action or process that happens over time.** All of the examples mentioned above, can be found in the [example content](/executable-objects/02-reference-material/07-example-content).
 
 ![](../../assets/executable-objects/ExampleContentSmallLayout02-large.jpg)
 
@@ -34,13 +34,16 @@ You can use Executable Objects to build your own custom actions that happen over
 
 Executable Objects are easy to use. They can be controlled using a single Blueprint node, and have a clear execution flow. 
 
+<embed src="/src/assets/executable-objects/slide-overview.pdf" width="100%" height="500px" toolbar=0 frameborder="0" scrolling="no" />
+
+
 ## Create your own !
 
 Executable Objects are exposed to Blueprint. This means that designers can easily create their own asynchronous actions entirely from the editor. Want to know how? The Tutorials section of this documentation will teach you how to:
 
-* [Add exposed variables](/executable-objects/2-tutorials/02-adding-input-parameters)
-* [Add custom function inputs](/executable-objects/2-tutorials/03-adding-input-execution-pins)
-* [Add output delegates](/executable-objects/2-tutorials/05-adding-delegate-pins)
+* [Add exposed variables](/executable-objects/01-tutorials/02-adding-input-parameters)
+* [Add custom function inputs](/executable-objects/01-tutorials/03-adding-input-execution-pins)
+* [Add output delegates](/executable-objects/01-tutorials/05-adding-delegate-pins)
 * And more!
 
 ![](../../assets/executable-objects/Customization02-large.jpg)
