@@ -47,5 +47,4 @@ All of these input methods require the input of Animation Matching Data. This da
 * based on which bones on the other Participant they should be moved; and
 * which other Participant to base these corrections on.
 
-![](../../../assets/grapple-component/animation-matching-update-large.jpg)
 
