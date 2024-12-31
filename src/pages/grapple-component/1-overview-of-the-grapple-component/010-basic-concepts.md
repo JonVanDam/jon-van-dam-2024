@@ -51,18 +51,13 @@ Every Grapple object has a Master Grapple Component. This is the Grapple Compone
 
 ![](../../../assets/grapple-component/relations.jpg)
 
-<div class="note">A lot of the functionality of the Grapple Component is explained in the Graph of the 'Grapple Sequence Tutorial' Object.</div>
-
-![](../../../assets/grapple-component/basic-concepts-4.jpg)
 
 ## Getting Started
 
 **Most users will be able to get started with the Grapple Component doing the following:**
 
-- Following the tutorial on Installation.
-- Following the tutorial on Implementation.
-- Following the tutorial on Grapple Sequence.
-- Consulting the Event Graph of the Grapple Sequence for more information and for links to commonly used Blueprint nodes.
-- In addition to following the tutorials in this Documentation, you can opt to watch the introductory video tutorial.
+* Having a look at the [content examples](/grapple-component/6-tutorials/040-accessing-content-examples)
+* Following the [video tutorials](https://youtu.be/iCmOiVsCJYg?si=4oxtnZ-voIEjFjPk)
+* Following the text-based tutorials ([installation](/grapple-component/6-tutorials/010-installation) / [implementation](/grapple-component/6-tutorials/020-implementation) / [creating a Grapple Sequence](/grapple-component/6-tutorials/050-creating-a-grapple-sequence))  
 
-In addition to following the tutorials in this Documentation, you can opt to watch the <a href="https://youtu.be/iCmOiVsCJYg" target="_blank">introductory video tutorial</a>
+
