@@ -19,7 +19,7 @@ The Grapple Component uses a set of custom-built Object Classes to exectue its f
 * [Object Converter](/grapple-component/5-internal-mechanisms/060-object-converter)
 
 
-<embed src="/public/pdf/slide-custom-objects.pdf" width="100%" height="550px" toolbar=0 frameborder="0" scrolling="no" />
+<embed src="/pdf/slide-custom-objects.pdf" width="100%" height="550px" toolbar=0 frameborder="0" scrolling="no" />
 
 
 

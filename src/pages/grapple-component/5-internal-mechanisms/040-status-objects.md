@@ -13,7 +13,7 @@ seoDescription: ''
 
 ## Status Object Base Class
 
-<embed src="/public/pdf/slide-custom-objects.pdf" width="100%" height="550px" toolbar=0 frameborder="0" scrolling="no" />
+<embed src="/pdf/slide-custom-objects.pdf" width="100%" height="550px" toolbar=0 frameborder="0" scrolling="no" />
 
 ### Concept
 

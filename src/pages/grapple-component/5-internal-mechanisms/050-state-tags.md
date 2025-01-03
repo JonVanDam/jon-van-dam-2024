@@ -57,4 +57,4 @@ State tags are linked to one another in the sense that each State Tag class has 
 
 The following State Tags are built in to the Grapple Component and are used for its different functionalities.
 
-<embed src="/public/pdf/slide-state-tags.pdf" width="100%" height="520px" toolbar=0 frameborder="0" scrolling="no" />
+<embed src="/pdf/slide-state-tags.pdf" width="100%" height="520px" toolbar=0 frameborder="0" scrolling="no" />

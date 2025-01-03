@@ -34,7 +34,7 @@ You can use Executable Objects to build your own custom actions that happen over
 
 Executable Objects are easy to use. They can be controlled using a single Blueprint node, and have a clear execution flow. 
 
-<embed src="/public/pdf/slide-overview.pdf" width="100%" height="500px" toolbar=0 frameborder="0" scrolling="no" />
+<embed src="/pdf/slide-overview.pdf" width="100%" height="500px" toolbar=0 frameborder="0" scrolling="no" />
 
 
 ## Create your own !

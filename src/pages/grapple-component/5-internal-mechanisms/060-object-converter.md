@@ -35,6 +35,6 @@ This is done by using the original assets from the [Animation Data](/grapple-com
 
 * Object Conversion Blueprint <span class="object">AnimationRemappingData</span> was set up to convert the relevant Animation Montages to their counterparts on the other Skeleton. A visual explanation of this system is provided below. 
 
-<embed src="/public/pdf/slide-object-converter.pdf" width="100%" height="520px" toolbar=0 frameborder="0" scrolling="no" />
+<embed src="/pdf/slide-object-converter.pdf" width="100%" height="520px" toolbar=0 frameborder="0" scrolling="no" />
 
 
