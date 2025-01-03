@@ -11,7 +11,7 @@ seoDescription: ''
 
 Executable Objects have an execution flow that is easy to understand and control. This article will look at the various ways in which you can interface with an Executable Object.
 
-<embed src="/src/assets/executable-objects/slide-executionflow.pdf" width="100%" height="500px" toolbar=0 frameborder="0" scrolling="no" />
+<embed src="/public/pdf/slide-executionflow.pdf" width="100%" height="500px" toolbar=0 frameborder="0" scrolling="no" />
 
 ## *Execute Object* node
 
