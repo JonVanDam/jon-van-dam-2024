@@ -3,7 +3,7 @@ layout: ../../../layouts/MarkdownPostLayout.astro
 title: 'Basic Concepts'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-sortOrder: 1
+sortOrder: 010
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''

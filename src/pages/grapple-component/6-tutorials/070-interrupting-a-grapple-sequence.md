@@ -1,24 +1,21 @@
 ---
 layout: ../../../layouts/MarkdownPostLayout.astro
-title: 'User Commands'
+title: 'Interrupting the Grapple Sequence'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-sortOrder: 1
+sortOrder: 070
+
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
 ---
 
+Grapple Sequences are interactive and can be interrupted at any time. 
 
-[Grapple Sequence](/grapple-component/1-overview-of-the-grapple-component/basic-concepts)
+To end the Grapple Sequence immediately, use function <span class="function">Terminate Grapple Sequence (Input)</span>
+ on the Grapple Component. Terminating the Grapple Sequence will revert its influence and cancel all Queued Events. For example, if you put this setup in your Character's Event Graph, any Grapple Sequence would be interrupted when you press the F key. To add functionality when the Grapple Sequence ends, you can override any of these events.
 
-[Local Grapple Data](/grapple-component/2-effects-of-the-grapple-component/010-grapple-data)
+To transition to another Grapple Sequence, use function <span class="function">Initiate Grapple Sequence With Current Participants (Input)</span>. 
 
-<span class="object">Struct_GC_SequenceCameraData</span>
+For more detailed information on the topic, please consult the section on [Terminating the Grapple Sequence](/grapple-component/3-controlling-the-grapple-sequence/020-terminating-the-grapple-sequence).
 
-[title](https://www.example.com)
-
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |

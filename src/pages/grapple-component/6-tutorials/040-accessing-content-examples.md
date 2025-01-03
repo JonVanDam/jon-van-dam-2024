@@ -1,24 +1,27 @@
 ---
 layout: ../../../layouts/MarkdownPostLayout.astro
-title: 'User Commands'
+title: 'Accessing the content examples'
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-sortOrder: 1
+sortOrder: 040
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
 ---
 
+The content examples can be found in this folder:
 
-[Grapple Sequence](/grapple-component/1-overview-of-the-grapple-component/basic-concepts)
+    Content/GrappleComponent/ContentExamples
 
-[Local Grapple Data](/grapple-component/2-effects-of-the-grapple-component/010-grapple-data)
+To access the Demonstration Game Mode, open the following level:
 
-<span class="object">Struct_GC_SequenceCameraData</span>
+    Content/GrappleComponent/ContentExamples/GrappleComponent_ExampleMap.umap 
 
-[title](https://www.example.com)
+A playable version of the content examples can be downloaded [here](https://1drv.ms/u/s!Am6I3pHDdwOjlKkkWULcPUAqeuWIyA?e=glJnVC).
 
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
+![](../../../assets/grapple-component/example-map.jpg)
+
+
+<div class="note">Please note that the content examples are only intented to illustrate the functionality of the Grapple Component. The project does not contain production-ready animation assets.</div>
+
+
