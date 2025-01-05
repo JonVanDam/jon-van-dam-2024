@@ -1,0 +1,52 @@
+---
+
+---
+
+<modal class="image-viewer hidden" id="image-viewer">
+  <div class="image-viewer-content" id="image-viewer-content"></div>
+</modal>
+
+<script>
+  // Define HTML elements in JS
+
+  const imageViewer = document.querySelector('#image-viewer');
+  const imageViewerContent = document.querySelector('#image-viewer-content');
+  const images = document.getElementsByTagName('img');
+
+  // Enlarge image and open modal
+
+  function enlargeImage(imgElement: HTMLImageElement) {
+    (imageViewer as any).classList.remove('hidden');
+    (imageViewerContent as any).insertAdjacentHTML(
+      'afterbegin',
+      `
+        <img src="${imgElement.src}" />
+      `,
+    );
+  }
+
+  // Add event listener with function to every image
+
+  for (var i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', function () {
+      enlargeImage(this);
+    });
+  }
+
+  // Close modal functions
+
+  const closeModal = () => {
+    (imageViewerContent as any).innerHTML = '';
+    (imageViewer as any).classList.add('hidden');
+  };
+
+  imageViewer?.addEventListener('click', (evt) => {
+    closeModal();
+  });
+
+  window.addEventListener('keydown', (evt) => {
+    if (evt.code === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
