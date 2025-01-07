@@ -13,7 +13,7 @@ const { pageTitle, onHomePage } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class={onHomePage ? 'gradient-bg' : ''}>
+  <body id="body" class={onHomePage ? 'gradient-bg' : ''}>
     <slot />
     <script>
       import '../scripts/main.js';

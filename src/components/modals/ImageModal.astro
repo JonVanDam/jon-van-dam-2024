@@ -16,13 +16,13 @@ import Modal from './Modal.astro';
   // Enlarge image and open modal
 
   function enlargeImage(imgElement: HTMLImageElement) {
-    (imageModal as any).classList.remove('hidden');
     (imageModalContent as any).insertAdjacentHTML(
       'afterbegin',
       `
-        <img src="${imgElement.src}" />
+      <img src="${imgElement.src}" />
       `,
     );
+    (imageModal as any).classList.remove('hidden');
   }
 
   // Add event listener with function to every image

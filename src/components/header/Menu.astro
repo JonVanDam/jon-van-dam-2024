@@ -37,5 +37,7 @@ const { project } = Astro.props;
   searchModalToggle?.addEventListener('click', () => {
     const modal = document.getElementById('search-modal');
     modal?.classList.remove('hidden');
+    const searchInput = document.querySelector('#search-input');
+    searchInput.focus();
   });
 </script>

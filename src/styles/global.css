@@ -257,12 +257,13 @@ html.dark .prose div.note {
 .search-modal-toggle {
   @apply py-1 px-4 text-sm;
   @apply bg-primary border border-primary w-44 relative flex items-center gap-2;
+  @apply hover:border-theme;
 }
 
 /* Image-modal styling */
 
 .image-modal-content {
-  @apply bg-body mx-auto p-16 w-full h-full bg-inherit;
+  @apply bg-body mx-auto p-2 sm:p-16 w-full h-full bg-inherit;
 }
 
 .image-modal img {

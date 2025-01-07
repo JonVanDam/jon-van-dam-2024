@@ -23,7 +23,7 @@ const articles = getAllArticles
 <Modal id="search-modal">
   <div class="search-modal-content">
     <div class="p-2 w-full relative">
-      <input autofocus id="search-input" class="search-input" placeholder={'Search ' + deslugify(projectId) + '...'} />
+      <input id="search-input" class="search-input" placeholder={'Search ' + deslugify(projectId) + '...'} />
       <Icon name="basil:search-outline" class="absolute top-5 left-5 scale-125 pointer-events-none" />
     </div>
     <ul class="max-h-[400px] overflow-y-auto border-t border-primary" id="results-list"></ul>
@@ -159,7 +159,7 @@ const articles = getAllArticles
     modal.classList.add('hidden');
   };
 
-  // Register click outside of modal, close-button or ESC key -> close modal
+  // Register click outside of modal or ESC key -> close modal
 
   window.addEventListener('click', (evt) => {
     const target = evt.target;
