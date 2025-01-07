@@ -1,23 +1,23 @@
 ---
-
+import Modal from './Modal.astro';
 ---
 
-<modal class="image-viewer hidden" id="image-viewer">
-  <div class="image-viewer-content" id="image-viewer-content"></div>
-</modal>
+<Modal id="image-modal">
+  <div class="image-modal-content" id="image-modal-content"></div>
+</Modal>
 
 <script>
   // Define HTML elements in JS
 
-  const imageViewer = document.querySelector('#image-viewer');
-  const imageViewerContent = document.querySelector('#image-viewer-content');
+  const imageModal = document.querySelector('#image-modal');
+  const imageModalContent = document.querySelector('#image-modal-content');
   const images = document.getElementsByTagName('img');
 
   // Enlarge image and open modal
 
   function enlargeImage(imgElement: HTMLImageElement) {
-    (imageViewer as any).classList.remove('hidden');
-    (imageViewerContent as any).insertAdjacentHTML(
+    (imageModal as any).classList.remove('hidden');
+    (imageModalContent as any).insertAdjacentHTML(
       'afterbegin',
       `
         <img src="${imgElement.src}" />
@@ -36,11 +36,11 @@
   // Close modal functions
 
   const closeModal = () => {
-    (imageViewerContent as any).innerHTML = '';
-    (imageViewer as any).classList.add('hidden');
+    (imageModalContent as any).innerHTML = '';
+    (imageModal as any).classList.add('hidden');
   };
 
-  imageViewer?.addEventListener('click', (evt) => {
+  imageModal?.addEventListener('click', (evt) => {
     closeModal();
   });
 

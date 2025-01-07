@@ -6,7 +6,7 @@ import Header from '../components/header/Header.astro';
 import Navigation from '../components/navigation/Navigation.astro';
 import TableOfContents from '../components/table-of-contents/TableOfContents.astro';
 import SearchModal from '../components/modals/SearchModal.astro';
-import ImageViewer from '../components/modals/ImageViewer.astro';
+import ImageModal from '../components/modals/ImageModal.astro';
 
 const { frontmatter, headings } = Astro.props;
 
@@ -80,5 +80,5 @@ for (const path in getAllArticlePaths) {
 
   <SearchModal projectId={projectId} />
 
-  <ImageViewer />
+  <ImageModal />
 </HtmlLayout>

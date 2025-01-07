@@ -1,0 +1,7 @@
+---
+const { id } = Astro.props;
+---
+
+<modal id={id} class={`modal ${id} hidden`}>
+  <slot />
+</modal>

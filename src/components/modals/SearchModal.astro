@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { deslugify } from '../../util/util';
+import Modal from './Modal.astro';
 
 const { projectId } = Astro.props;
 
@@ -19,7 +20,7 @@ const articles = getAllArticles
   });
 ---
 
-<modal id="search-modal" class="search-modal hidden">
+<Modal id="search-modal">
   <div class="search-modal-content">
     <div class="p-2 w-full relative">
       <input autofocus id="search-input" class="search-input" placeholder={'Search ' + deslugify(projectId) + '...'} />
@@ -27,7 +28,7 @@ const articles = getAllArticles
     </div>
     <ul class="max-h-[400px] overflow-y-auto border-t border-primary" id="results-list"></ul>
   </div>
-</modal>
+</Modal>
 
 <script is:inline define:vars={{ articles }}>
   // Define HTML elements in JS
