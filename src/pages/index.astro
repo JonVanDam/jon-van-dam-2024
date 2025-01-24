@@ -9,44 +9,48 @@ const projects = await Astro.glob('./*/*.md');
 ---
 
 <HtmlLayout pageTitle={pageTitle} onHomePage={true}>
-  <header class="w-full">
-    <Header projectId={undefined} project={undefined} chapterIds={undefined} />
-  </header>
+  <div class="h-screen flex flex-col">
+    <header class="w-full">
+      <Header projectId={undefined} project={undefined} chapterIds={undefined} />
+    </header>
 
-  <main class="w-full h-full flex-grow">
-    <div class="py-20 flex flex-col gap-16 px-2 md:px-8">
-      <div class="text-center">
-        <h1 class="text-3xl sm:text-5xl mb-4 font-bold text-primary">Documentation</h1>
-        <h2 class="text-base sm:text-lg text-tertiary">Guides, tutorials and how-to's for our BluePrint Components</h2>
-      </div>
-      <div
-        class="overflow-x-hidden max-w-[310px] mobile:max-w-[370px] min-[815px]:max-w-[740px] min-[1180px]:max-w-[1110px] mx-auto"
-      >
-        <div id="slider" class="flex transition-all duration-500">
-          {
-            projects
-              .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
-              .map((project) => {
-                return (
-                  <div class="flex-[0_0_310px] mobile:flex-[0_0_370px] px-3">
-                    <a href={project.url}>
-                      <div class="shadow-md rounded-lg overflow-hidden">
-                        <img
-                          src={project.frontmatter.thumbnail}
-                          class="hover:opacity-80 transition-all h-full w-full object-cover"
-                        />
-                      </div>
-                    </a>
-                  </div>
-                );
-              })
-          }
+    <main class="w-full flex-grow flex justify-center items-center">
+      <div class="flex flex-col gap-8 pb-16 px-8">
+        <div class="flex flex-col items-center gap-4 max-w-[700px] mx-auto text-center">
+          <h1 class="text-3xl sm:text-5xl font-bold text-primary">Guides and tutorials for our BluePrint Components</h1>
+          <h2 class="text-base sm:text-lg text-secondary max-w-[500px]">
+            Easily get started with one of our components, designed to add functionality to your project
+          </h2>
+        </div>
+        <div
+          class="overflow-x-hidden max-w-[310px] mobile:max-w-[370px] min-[815px]:max-w-[740px] min-[1180px]:max-w-[1110px] mx-auto"
+        >
+          <div id="slider" class="flex transition-all duration-500">
+            {
+              projects
+                .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
+                .map((project) => {
+                  return (
+                    <div class="flex-[0_0_310px] mobile:flex-[0_0_370px] px-3">
+                      <a href={project.url}>
+                        <div class="shadow-md rounded-lg overflow-hidden">
+                          <img
+                            src={project.frontmatter.thumbnail}
+                            class="hover:opacity-80 transition-all h-full w-full object-cover"
+                          />
+                        </div>
+                      </a>
+                    </div>
+                  );
+                })
+            }
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <Footer project={undefined} />
+    <Footer project={undefined} />
+  </div>
 </HtmlLayout>
 
 <script is:inline define:vars={{ projects }}>
@@ -54,14 +58,14 @@ const projects = await Astro.glob('./*/*.md');
 
   let windowWidth = window.screen.width;
 
-  let sliderStartIndex = 0;
+  let sliderIndex = 0;
   let sliderLength = 3;
 
-  const updateSlider = () => {
-    if (sliderStartIndex === 0) {
+  const updateSlider = (index) => {
+    if (index === 0) {
       slider.style.marginLeft = '0px';
     } else {
-      slider.style.marginLeft = `-${sliderStartIndex * (windowWidth < 440 ? 310 : 370)}px`;
+      slider.style.marginLeft = `-${index * (windowWidth < 440 ? 310 : 370)}px`;
     }
   };
 
@@ -69,12 +73,12 @@ const projects = await Astro.glob('./*/*.md');
     console.log(windowWidth);
 
     if (!slider) return;
-    sliderStartIndex = sliderStartIndex + 1;
-    if (sliderStartIndex > projects.length - sliderLength) {
-      sliderStartIndex = 0;
+    sliderIndex = sliderIndex + 1;
+    if (sliderIndex > projects.length - sliderLength) {
+      sliderIndex = 0;
     }
 
-    updateSlider();
+    updateSlider(sliderIndex);
   }, 4 * 1000);
 
   // Keep track of window width with resizer function

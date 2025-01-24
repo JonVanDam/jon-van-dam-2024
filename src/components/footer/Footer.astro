@@ -6,22 +6,22 @@ const currentYear = new Date().getFullYear();
 const { project } = Astro.props;
 ---
 
-<footer class={`w-full h-[180px] ${project ? 'border-t border-primary' : ''}`}>
+<footer
+  class={`w-full text-xs ${project ? 'border-t border-primary' : 'bg-zinc-800 dark:bg-transparent text-zinc-100 px-8'}`}
+>
   <div class="max-w-[90rem] mx-auto">
-    <div class="max-w-[400px] mx-auto px-8 text-secondary text-sm">
-      <div class="border-b border-primary mx-auto">
-        <div class="my-4 flex flex-col gap-3 justify-center items-center">
-          <Social platform="discord" label="Join us on Discord" link="https://discord.com/invite/jZ2s8a7cg4" />
-          <Social platform="maildotru" label="jon@jonvandam.com" link="mailto:jon@jonvandam.com" />
-          <Social
-            platform="unrealengine"
-            label="Unreal Marketplace"
-            link="https://www.unrealengine.com/marketplace/en-US/profile/Jon+Van+Dam?count=20&sortBy=effectiveDate&sortDir=DESC&start=0"
-          />
-        </div>
+    <div class="flex flex-row justify-between flex-wrap gap-x-16 gap-y-8 py-8">
+      <div class="flex flex-row flex-wrap gap-x-8 gap-y-4">
+        <Social platform="discord" label="Join us on Discord" link="https://discord.com/invite/jZ2s8a7cg4" />
+        <Social platform="maildotru" label="jon@jonvandam.com" link="mailto:jon@jonvandam.com" />
+        <Social
+          platform="unrealengine"
+          label="Unreal Marketplace"
+          link="https://www.unrealengine.com/marketplace/en-US/profile/Jon+Van+Dam?count=20&sortBy=effectiveDate&sortDir=DESC&start=0"
+        />
       </div>
-      <div class="my-4 flex justify-center">
-        <p class="truncate">
+      <div class="">
+        <p>
           © {currentYear} Jon Van Dam | Site by Jef Ceuppens
         </p>
       </div>
