@@ -9,12 +9,12 @@ const projects = await Astro.glob('./*/*.md');
 ---
 
 <HtmlLayout pageTitle={pageTitle} onHomePage={true}>
-  <div class="min-h-screen flex flex-col">
-    <header class="w-full">
+  <div class="min-h-screen flex flex-col relative">
+    <header class="w-full absolute top-0">
       <Header projectId={undefined} project={undefined} chapterIds={undefined} />
     </header>
 
-    <main class="w-full flex-grow flex justify-center items-center">
+    <main class="w-full h-screen sm:h-auto flex-grow flex justify-center items-center">
       <div class="flex flex-col gap-8 pt-20 pb-28 px-8">
         <div class="flex flex-col items-center gap-4 max-w-[700px] mx-auto text-center">
           <h1 class="text-3xl sm:text-5xl font-bold text-primary">Guides and tutorials for our BluePrint Components</h1>
