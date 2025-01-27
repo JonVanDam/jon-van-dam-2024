@@ -2,6 +2,7 @@
 import HtmlLayout from '../layouts/HtmlLayout.astro';
 import Header from '../components/header/Header.astro';
 import Footer from '../components/footer/Footer.astro';
+import { Icon } from 'astro-icon/components';
 
 const pageTitle = 'Jon Van Dam';
 
@@ -15,35 +16,45 @@ const projects = await Astro.glob('./*/*.md');
     </header>
 
     <main class="w-full h-screen sm:h-auto flex-grow flex justify-center items-center">
-      <div class="flex flex-col gap-8 pt-20 pb-28 px-8">
+      <div class="flex flex-col gap-8 pt-20 pb-28 px-4 sm:px-8">
         <div class="flex flex-col items-center gap-4 max-w-[700px] mx-auto text-center">
           <h1 class="text-3xl sm:text-5xl font-bold text-primary">Guides and tutorials for our BluePrint Components</h1>
           <h2 class="text-base sm:text-lg text-secondary max-w-[500px]">
             Easily get started with one of our components, designed to add functionality to your project
           </h2>
         </div>
-        <div
-          class="overflow-x-hidden max-w-[310px] mobile:max-w-[370px] min-[815px]:max-w-[740px] min-[1180px]:max-w-[1110px] mx-auto"
-        >
-          <div id="slider" class="flex transition-all duration-500">
-            {
-              projects
-                .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
-                .map((project) => {
-                  return (
-                    <div class="flex-[0_0_310px] mobile:flex-[0_0_370px] px-3">
-                      <a href={project.url}>
-                        <div class="shadow-md rounded-lg overflow-hidden">
-                          <img
-                            src={project.frontmatter.thumbnail}
-                            class="hover:opacity-80 transition-all h-full w-full object-cover"
-                          />
-                        </div>
-                      </a>
-                    </div>
-                  );
-                })
-            }
+        <div class="w-full px-6 relative">
+          <div class="absolute left-0 top-0 bottom-0 flex items-center">
+            <button id="slider-left" class="text square">
+              <Icon class="scale-[2] pointer-events-none" name="basil:caret-left-solid" />
+            </button>
+          </div>
+          <div class="w-full overflow-x-hidden">
+            <div id="slider" class="flex transition-all duration-500">
+              {
+                projects
+                  .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
+                  .map((project, i) => {
+                    return (
+                      <div id={'project_' + i} class="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.3%] px-3">
+                        <a href={project.url}>
+                          <div class="shadow-md rounded-lg overflow-hidden">
+                            <img
+                              src={project.frontmatter.thumbnail}
+                              class="hover:opacity-80 transition-all h-full w-full object-cover"
+                            />
+                          </div>
+                        </a>
+                      </div>
+                    );
+                  })
+              }
+            </div>
+          </div>
+          <div class="absolute right-0 top-0 bottom-0 flex items-center">
+            <button id="slider-right" class="text square">
+              <Icon class="scale-[2] pointer-events-none" name="basil:caret-right-solid" />
+            </button>
           </div>
         </div>
       </div>
@@ -58,28 +69,41 @@ const projects = await Astro.glob('./*/*.md');
 
   let windowWidth = window.screen.width;
 
+  const leftBtn = document.querySelector('#slider-left');
+  const rightBtn = document.querySelector('#slider-right');
+
   let sliderIndex = 0;
   let sliderLength = 3;
 
   const updateSlider = (index) => {
+    let projectWidth = document.querySelector('#project_1').getBoundingClientRect().width;
+
     if (index === 0) {
-      slider.style.marginLeft = '0px';
+      slider.style.transform = 'translate(0px, 0px)';
     } else {
-      slider.style.marginLeft = `-${index * (windowWidth < 440 ? 310 : 370)}px`;
+      slider.style.transform = `translate(-${index * projectWidth}px, 0)`;
     }
   };
 
-  setInterval(() => {
-    console.log(windowWidth);
+  leftBtn.addEventListener('click', (evt) => {
+    sliderIndex = sliderIndex - 1;
 
-    if (!slider) return;
-    sliderIndex = sliderIndex + 1;
-    if (sliderIndex > projects.length - sliderLength) {
+    if (sliderIndex < 0) {
       sliderIndex = 0;
     }
 
     updateSlider(sliderIndex);
-  }, 4 * 1000);
+  });
+
+  rightBtn.addEventListener('click', (evt) => {
+    sliderIndex = sliderIndex + 1;
+
+    if (sliderIndex > projects.length - sliderLength) {
+      sliderIndex = projects.length - sliderLength;
+    }
+
+    updateSlider(sliderIndex);
+  });
 
   // Keep track of window width with resizer function
   // -> also update sliderLength accordingly
@@ -87,7 +111,7 @@ const projects = await Astro.glob('./*/*.md');
   const widthResizer = () => {
     windowWidth = window.innerWidth;
 
-    sliderLength = window.innerWidth > 1180 ? 3 : window.innerWidth > 815 ? 2 : 1;
+    sliderLength = window.innerWidth > 1024 ? 3 : window.innerWidth > 640 ? 2 : 1;
   };
 
   window.addEventListener('resize', widthResizer);
