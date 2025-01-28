@@ -158,18 +158,23 @@ const projects = await Astro.glob('./*/*.md');
   var observer = new ResizeObserver(function (entries) {
     const width = entries[0].borderBoxSize?.[0].inlineSize;
 
+    const sliderLength = getSliderLength();
+
     if (typeof width === 'number') {
       if (
         thresholdPassed(prevWidth, width, 1280) ||
         thresholdPassed(prevWidth, width, 1024) ||
         thresholdPassed(prevWidth, width, 640)
       ) {
-        const sliderLength = getSliderLength();
         sliderIndex = 0;
         updateSlider(sliderIndex, sliderLength);
       }
       prevWidth = width;
     }
+
+    // even when not threshold wasnt passed, still updateSlider with current index
+    // -> the offset that is used for the transform-translate differs for every width
+    updateSlider(sliderIndex, sliderLength);
   });
 
   observer.observe(window.document.body);
