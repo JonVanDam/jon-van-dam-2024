@@ -76,46 +76,101 @@ const projects = await Astro.glob('./*/*.md');
   const rightBtn = document.querySelector('#slider-right');
 
   let sliderIndex = 0;
-  let sliderLength = 3;
 
-  const updateSlider = (index) => {
+  // HELPER FUNCTIONS
+
+  const disableButton = (button) => {
+    button.setAttribute('disabled', 'true');
+    button.classList.remove('text');
+  };
+
+  const enableButton = (button) => {
+    button.removeAttribute('disabled');
+    button.classList.add('text');
+  };
+
+  const getSliderLength = () => {
+    let sliderLength = window.innerWidth > 1280 ? 4 : window.innerWidth > 1024 ? 3 : window.innerWidth > 640 ? 2 : 1;
+    return sliderLength;
+  };
+
+  // ACTUAL SLIDER LOGIC
+
+  const updateSlider = (index, sliderLength) => {
     let projectWidth = document.querySelector('#project_1').getBoundingClientRect().width;
+
+    // Update slider
 
     if (index === 0) {
       slider.style.transform = 'translate(0px, 0px)';
     } else {
       slider.style.transform = `translate(-${index * projectWidth}px, 0)`;
     }
+
+    // Update left button state
+
+    if (index === 0) {
+      disableButton(leftBtn);
+    } else {
+      enableButton(leftBtn);
+    }
+
+    // Update right button state
+
+    if (index === projects.length - sliderLength) {
+      disableButton(rightBtn);
+    } else {
+      enableButton(rightBtn);
+    }
   };
 
-  leftBtn.addEventListener('click', (evt) => {
+  leftBtn.addEventListener('click', () => {
     sliderIndex = sliderIndex - 1;
 
     if (sliderIndex < 0) {
       sliderIndex = 0;
     }
 
-    updateSlider(sliderIndex);
+    const sliderLength = getSliderLength();
+
+    updateSlider(sliderIndex, sliderLength);
   });
 
-  rightBtn.addEventListener('click', (evt) => {
+  rightBtn.addEventListener('click', () => {
     sliderIndex = sliderIndex + 1;
+
+    const sliderLength = getSliderLength();
 
     if (sliderIndex > projects.length - sliderLength) {
       sliderIndex = projects.length - sliderLength;
     }
 
-    updateSlider(sliderIndex);
+    updateSlider(sliderIndex, sliderLength);
   });
 
-  // Keep track of window width with resizer function
-  // -> also update sliderLength accordingly
+  // Track when window resizing passes any of the breakpoints:
 
-  const widthResizer = () => {
-    windowWidth = window.innerWidth;
+  const thresholdPassed = (prev, curr, threshold) =>
+    (prev > threshold && curr <= threshold) || (prev < threshold && curr >= threshold);
 
-    sliderLength = window.innerWidth > 1280 ? 4 : window.innerWidth > 1024 ? 3 : window.innerWidth > 640 ? 2 : 1;
-  };
+  var prevWidth = window.width;
 
-  window.addEventListener('resize', widthResizer);
+  var observer = new ResizeObserver(function (entries) {
+    const width = entries[0].borderBoxSize?.[0].inlineSize;
+
+    if (typeof width === 'number') {
+      if (
+        thresholdPassed(prevWidth, width, 1280) ||
+        thresholdPassed(prevWidth, width, 1024) ||
+        thresholdPassed(prevWidth, width, 640)
+      ) {
+        const sliderLength = getSliderLength();
+        sliderIndex = 0;
+        updateSlider(sliderIndex, sliderLength);
+      }
+      prevWidth = width;
+    }
+  });
+
+  observer.observe(window.document.body);
 </script>
