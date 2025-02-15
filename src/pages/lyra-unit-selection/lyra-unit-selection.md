@@ -10,6 +10,8 @@ seoKeywords: []
 seoDescription: ''
 ---
 
+<div class="note">This plugin in still in development. <a href="https://discord.com/invite/jZ2s8a7cg4">Join our Discord server</a> to be notified when it comes out!</div>
+
 Lyra Unit Selection is a plugin for Lyra projects in Unreal Engine 5. It allows players to dynamically select characters and equipment.
 
 Notable features are:
@@ -25,3 +27,4 @@ Notable features are:
     * Animation sets
 
 Apart from character selection, the plugin can also be used to switch between different sets of equipment in general. 
+
