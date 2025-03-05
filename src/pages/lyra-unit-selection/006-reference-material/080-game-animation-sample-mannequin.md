@@ -3,7 +3,7 @@ layout: ../../../layouts/MarkdownPostLayout.astro
 title: UEFN Mannequin versus Manny and Quinn
 createdAt: '2024-11-11'
 updatedAt: '2024-11-11'
-sortOrder: 1
+sortOrder: 080
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
