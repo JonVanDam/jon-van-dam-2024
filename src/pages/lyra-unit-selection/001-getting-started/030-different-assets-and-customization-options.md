@@ -1,9 +1,9 @@
 ---
 layout: ../../../layouts/MarkdownPostLayout.astro
-title: Relevant asset types
+title: Different asset types and customization options
 createdAt: '2024-10-17'
 updatedAt: '2024-10-17'
-sortOrder: 010
+sortOrder: 030
 seoTitle: ''
 seoKeywords: []
 seoDescription: ''
@@ -23,14 +23,12 @@ seoDescription: ''
 
 | What? | Where? |
 | ----------- | ----------- |
-| UI icon | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
-| Gameplay tags / catagories | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
-| Abilities | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
-| Spawnable actors | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
-| Animation | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
-| Skeletal Mesh | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
-| Character parts | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
-| Starting equipment | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
-| Starting inventory | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
-| Default attributes | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
+| [UI icon](/lyra-unit-selection/004-interface/120-ui-icons) | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
+| [Tags / catagories](/lyra-unit-selection/004-interface/130-tags-categories) | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
+| [Abilities](/lyra-unit-selection/003-gameplay-elements/115-abilities) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
+| [Spawnable Actors](/lyra-unit-selection/003-gameplay-elements/150-spawnable-actors) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
+| [Animation](/lyra-unit-selection/002-cosmetic-elements/060-animation) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
+| [Skeletal Mesh / Chcaracter parts](/lyra-unit-selection/002-cosmetic-elements/070-skeletal-mesh-character-parts) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
+| [Starting  inventory / equipment](/lyra-unit-selection/003-gameplay-elements/080-starting-inventory-equipment) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
+|[Default attributes](/lyra-unit-selection/003-gameplay-elements/090-default-attributes) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
 

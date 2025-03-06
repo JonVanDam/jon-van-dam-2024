@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/MarkdownPostLayout.astro
-title: UI Icon
+title: UI Icons
 createdAt: '2025-03-05'
 updatedAt: '2025-03-05'
 sortOrder: 120

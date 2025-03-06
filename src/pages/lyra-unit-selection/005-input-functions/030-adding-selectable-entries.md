@@ -32,8 +32,8 @@ Selectable units are stored in the inventory of the player, using [Lyra's invent
 
 <embed src="/pdf/lus-execution-flow.pdf" width="100%" height="420px" toolbar=0 frameborder="0" scrolling="no" />
 
-The advantage of this approach, is that inventory items in Lyra are modular and consist of inventory fragments. These fragments can be used to add metadata or additional functionality to an item. Examples that are implemented in the plugin, are: 
+The advantage of this approach, is that inventory items in Lyra are modular and consist of inventory fragments. These fragments can be used to add metadata or additional functionality to an item. These can be used to:
 
+* [Add UI icons](/lyra-unit-selection/004-interface/120-ui-icons)
+* [Add categories / classifications using gameplay tags](/lyra-unit-selection/004-interface/130-tags-categories)
 
-
-## Adding metadata to selectable entries

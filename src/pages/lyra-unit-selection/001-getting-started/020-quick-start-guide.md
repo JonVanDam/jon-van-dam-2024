@@ -53,19 +53,18 @@ Start a new play-in-editor session, and press the [H] key. You will now see your
 
 <div class="note">Consult <a href="/lyra-unit-selection/02-reference-material/010-relevant-asset-types">this page</a> for more information on the classes we have just created, and how they fit into Lyra's modular game framework.</div> 
 
+**Congratulations! You have now created your own selectable unit.**
+
 ## Customizing your selectable unit
 
 From here, you can change the properties of your selectable unit you wish to customize:
 
 | What? | Where? |
 | ----------- | ----------- |
-| [UI icon](/lyra-unit-selection/002-customization/020-ui-icon) | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
-| [Tags / catagories](/lyra-unit-selection/002-customization/030-tags-categories) | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
-| [Abilities](/lyra-unit-selection/002-customization/040-abilities) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
-| [Spawnable Actors](/lyra-unit-selection/002-customization/050-spawnable-actors) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
-| [Animation](/lyra-unit-selection/002-customization/060-animation) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
-| [Skeletal Mesh / Chcaracter parts](/lyra-unit-selection/002-customization/070-skeletal-mesh-character-parts) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
-| [Starting  inventory / equipment](/lyra-unit-selection/002-customization/080-starting-inventory-equipment) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
-|[Default attributes](/lyra-unit-selection/002-customization/090-default-attributes) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
+| [Add an animation set for your character](/lyra-unit-selection/002-cosmetic-elements/060-animation) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
+| [Assign a skeletal mesh and character parts](/lyra-unit-selection/002-cosmetic-elements/070-skeletal-mesh-character-parts) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
+| [Add starting inventory and equipment](/lyra-unit-selection/003-gameplay-elements/080-starting-inventory-equipment) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
+| [Add abilities](/lyra-unit-selection/003-gameplay-elements/115-abilities) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
+|[Set default attributes](/lyra-unit-selection/003-gameplay-elements/090-default-attributes) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
 
-**Congratulations! You have now created your own selectable unit.**
+For more customization possibilities, please refer to the [article on the different asset types and customization options](/lyra-unit-selection/001-getting-started/030-different-assets-and-customization-options) of the plugin.
