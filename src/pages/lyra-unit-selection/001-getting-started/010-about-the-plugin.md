@@ -1,12 +1,11 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Lyra Unit Selection'
-createdAt: '2024-10-17'
-updatedAt: '2024-10-17'
-thumbnail: /thumbnails/lus-thumbnail-cs.jpg
-sortOrder: 11
+layout: ../../../layouts/MarkdownPostLayout.astro
+title: About the plugin
+createdAt: '2025-03-05'
+updatedAt: '2025-03-05'
+sortOrder: 010
 seoTitle: ''
-seoKeywords: []
+seoKeywords: [Unreal Engine 5 Character Select Screen Lyra Unit Selection]
 seoDescription: ''
 ---
 
@@ -27,4 +26,3 @@ Notable features are:
     * Animation sets
 
 Apart from character selection, the plugin can also be used to switch between different sets of equipment in general. 
-

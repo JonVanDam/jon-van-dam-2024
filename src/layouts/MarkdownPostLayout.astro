@@ -4,8 +4,9 @@ import Prose from '../components/Prose.astro';
 import Footer from '../components/footer/Footer.astro';
 import Header from '../components/header/Header.astro';
 import Navigation from '../components/navigation/Navigation.astro';
-import SearchModal from '../components/modal/SearchModal.astro';
 import TableOfContents from '../components/table-of-contents/TableOfContents.astro';
+import SearchModal from '../components/modals/SearchModal.astro';
+import ImageModal from '../components/modals/ImageModal.astro';
 
 const { frontmatter, headings } = Astro.props;
 
@@ -76,5 +77,8 @@ for (const path in getAllArticlePaths) {
       ) : null
     }
   </div>
+
   <SearchModal projectId={projectId} />
+
+  <ImageModal />
 </HtmlLayout>

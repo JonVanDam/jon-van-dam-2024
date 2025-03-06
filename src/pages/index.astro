@@ -2,6 +2,7 @@
 import HtmlLayout from '../layouts/HtmlLayout.astro';
 import Header from '../components/header/Header.astro';
 import Footer from '../components/footer/Footer.astro';
+import { Icon } from 'astro-icon/components';
 
 const pageTitle = 'Jon Van Dam';
 
@@ -9,44 +10,61 @@ const projects = await Astro.glob('./*/*.md');
 ---
 
 <HtmlLayout pageTitle={pageTitle} onHomePage={true}>
-  <header class="w-full">
-    <Header projectId={undefined} project={undefined} chapterIds={undefined} />
-  </header>
+  <div class="min-h-screen flex flex-col relative">
+    <header class="w-full absolute top-0">
+      <Header projectId={undefined} project={undefined} chapterIds={undefined} />
+    </header>
 
-  <main class="w-full h-full flex-grow">
-    <div class="py-20 flex flex-col gap-16 px-2 md:px-8">
-      <div class="text-center">
-        <h1 class="text-3xl sm:text-5xl mb-4 font-bold text-primary">Documentation</h1>
-        <h2 class="text-base sm:text-lg text-tertiary">Guides, tutorials and how-to's for our BluePrint Components</h2>
-      </div>
-      <div
-        class="overflow-x-hidden max-w-[310px] mobile:max-w-[370px] min-[815px]:max-w-[740px] min-[1180px]:max-w-[1110px] mx-auto"
-      >
-        <div id="slider" class="flex transition-all duration-500">
-          {
-            projects
-              .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
-              .map((project) => {
-                return (
-                  <div class="flex-[0_0_310px] mobile:flex-[0_0_370px] px-3">
-                    <a href={project.url}>
-                      <div class="shadow-md rounded-lg overflow-hidden">
-                        <img
-                          src={project.frontmatter.thumbnail}
-                          class="hover:opacity-80 transition-all h-full w-full object-cover"
-                        />
+    <main class="w-full h-screen sm:h-auto flex-grow flex justify-center items-center">
+      <div class="flex flex-col gap-8 pt-20 pb-28 px-4 sm:px-8">
+        <div class="flex flex-col items-center gap-4 max-w-[700px] mx-auto text-center">
+          <h1 class="text-3xl sm:text-5xl font-bold text-primary">Documentation</h1>
+          <h2 class="text-base sm:text-lg text-secondary max-w-[500px]">
+            Tutorials, guides and reference material for our Unreal Engine plugins 
+          </h2>
+        </div>
+        <div class="w-full px-6 relative">
+          <div class="absolute left-0 top-0 bottom-0 flex items-center">
+            <button id="slider-left" class="text square">
+              <Icon class="scale-[2] pointer-events-none" name="basil:caret-left-solid" />
+            </button>
+          </div>
+          <div class="w-full overflow-x-hidden">
+            <div id="slider" class="flex transition-all duration-500">
+              {
+                projects
+                  .sort((a, b) => (a.frontmatter.sortOrder > b.frontmatter.sortOrder ? 1 : -1))
+                  .map((project, i) => {
+                    return (
+                      <div
+                        id={'project_' + i}
+                        class="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.3%] xl:flex-[0_0_25%] px-3"
+                      >
+                        <a href={project.url}>
+                          <div class="shadow-md rounded-lg overflow-hidden">
+                            <img
+                              src={project.frontmatter.thumbnail}
+                              class="hover:opacity-80 transition-all h-full w-full object-cover"
+                            />
+                          </div>
+                        </a>
                       </div>
-                    </a>
-                  </div>
-                );
-              })
-          }
+                    );
+                  })
+              }
+            </div>
+          </div>
+          <div class="absolute right-0 top-0 bottom-0 flex items-center">
+            <button id="slider-right" class="text square">
+              <Icon class="scale-[2] pointer-events-none" name="basil:caret-right-solid" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <Footer project={undefined} />
+    <Footer project={undefined} />
+  </div>
 </HtmlLayout>
 
 <script is:inline define:vars={{ projects }}>
@@ -54,37 +72,110 @@ const projects = await Astro.glob('./*/*.md');
 
   let windowWidth = window.screen.width;
 
-  let sliderStartIndex = 0;
-  let sliderLength = 3;
+  const leftBtn = document.querySelector('#slider-left');
+  const rightBtn = document.querySelector('#slider-right');
 
-  const updateSlider = () => {
-    if (sliderStartIndex === 0) {
-      slider.style.marginLeft = '0px';
+  let sliderIndex = 0;
+
+  // HELPER FUNCTIONS
+
+  const disableButton = (button) => {
+    button.setAttribute('disabled', 'true');
+    button.classList.remove('text');
+  };
+
+  const enableButton = (button) => {
+    button.removeAttribute('disabled');
+    button.classList.add('text');
+  };
+
+  const getSliderLength = () => {
+    let sliderLength = window.innerWidth > 1280 ? 4 : window.innerWidth > 1024 ? 3 : window.innerWidth > 640 ? 2 : 1;
+    return sliderLength;
+  };
+
+  // ACTUAL SLIDER LOGIC
+
+  const updateSlider = (index, sliderLength) => {
+    let projectWidth = document.querySelector('#project_1').getBoundingClientRect().width;
+
+    // Update slider
+
+    if (index === 0) {
+      slider.style.transform = 'translate(0px, 0px)';
     } else {
-      slider.style.marginLeft = `-${sliderStartIndex * (windowWidth < 440 ? 310 : 370)}px`;
+      slider.style.transform = `translate(-${index * projectWidth}px, 0)`;
+    }
+
+    // Update left button state
+
+    if (index === 0) {
+      disableButton(leftBtn);
+    } else {
+      enableButton(leftBtn);
+    }
+
+    // Update right button state
+
+    if (index === projects.length - sliderLength) {
+      disableButton(rightBtn);
+    } else {
+      enableButton(rightBtn);
     }
   };
 
-  setInterval(() => {
-    console.log(windowWidth);
+  leftBtn.addEventListener('click', () => {
+    sliderIndex = sliderIndex - 1;
 
-    if (!slider) return;
-    sliderStartIndex = sliderStartIndex + 1;
-    if (sliderStartIndex > projects.length - sliderLength) {
-      sliderStartIndex = 0;
+    if (sliderIndex < 0) {
+      sliderIndex = 0;
     }
 
-    updateSlider();
-  }, 4 * 1000);
+    const sliderLength = getSliderLength();
 
-  // Keep track of window width with resizer function
-  // -> also update sliderLength accordingly
+    updateSlider(sliderIndex, sliderLength);
+  });
 
-  const widthResizer = () => {
-    windowWidth = window.innerWidth;
+  rightBtn.addEventListener('click', () => {
+    sliderIndex = sliderIndex + 1;
 
-    sliderLength = window.innerWidth > 1180 ? 3 : window.innerWidth > 815 ? 2 : 1;
-  };
+    const sliderLength = getSliderLength();
 
-  window.addEventListener('resize', widthResizer);
+    if (sliderIndex > projects.length - sliderLength) {
+      sliderIndex = projects.length - sliderLength;
+    }
+
+    updateSlider(sliderIndex, sliderLength);
+  });
+
+  // Track when window resizing passes any of the breakpoints:
+
+  const thresholdPassed = (prev, curr, threshold) =>
+    (prev > threshold && curr <= threshold) || (prev < threshold && curr >= threshold);
+
+  var prevWidth = window.width;
+
+  var observer = new ResizeObserver(function (entries) {
+    const width = entries[0].borderBoxSize?.[0].inlineSize;
+
+    const sliderLength = getSliderLength();
+
+    if (typeof width === 'number') {
+      if (
+        thresholdPassed(prevWidth, width, 1280) ||
+        thresholdPassed(prevWidth, width, 1024) ||
+        thresholdPassed(prevWidth, width, 640)
+      ) {
+        sliderIndex = 0;
+        updateSlider(sliderIndex, sliderLength);
+      }
+      prevWidth = width;
+    }
+
+    // even when not threshold wasnt passed, still updateSlider with current index
+    // -> the offset that is used for the transform-translate differs for every width
+    updateSlider(sliderIndex, sliderLength);
+  });
+
+  observer.observe(window.document.body);
 </script>

@@ -1,0 +1,52 @@
+---
+import Modal from './Modal.astro';
+---
+
+<Modal id="image-modal">
+  <div class="image-modal-content" id="image-modal-content"></div>
+</Modal>
+
+<script>
+  // Define HTML elements in JS
+
+  const imageModal = document.querySelector('#image-modal');
+  const imageModalContent = document.querySelector('#image-modal-content');
+  const images = document.getElementsByTagName('img');
+
+  // Enlarge image and open modal
+
+  function enlargeImage(imgElement: HTMLImageElement) {
+    (imageModalContent as any).insertAdjacentHTML(
+      'afterbegin',
+      `
+      <img src="${imgElement.src}" />
+      `,
+    );
+    (imageModal as any).classList.remove('hidden');
+  }
+
+  // Add event listener with function to every image
+
+  for (var i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', function () {
+      enlargeImage(this);
+    });
+  }
+
+  // Close modal functions
+
+  const closeModal = () => {
+    (imageModalContent as any).innerHTML = '';
+    (imageModal as any).classList.add('hidden');
+  };
+
+  imageModal?.addEventListener('click', (evt) => {
+    closeModal();
+  });
+
+  window.addEventListener('keydown', (evt) => {
+    if (evt.code === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
