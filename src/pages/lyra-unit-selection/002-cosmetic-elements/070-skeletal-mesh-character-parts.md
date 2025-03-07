@@ -37,4 +37,6 @@ A common approach is to have a main skeletal mesh for each character or archetyp
 
 To add character parts while your unit is selected, open the Equipment Instance *(<span class="object">EQI_MyUnit</span>)* for your unit, and modify the <span class="variable">Character Parts</span> variable.
 
+You can use any actor type as a character part, but it is recommended to use one that inherits from (<span class="object">B_UnitCosmetics</span>). In any case, these actors must have their 'replication' propertry set to 'false', or they will not spawn in clients. To spawn replicated actors, use the ['spawn actors' functionality](/lyra-unit-selection/003-gameplay-elements/150-spawnable-actors) on the equipent definition instead.
+
 ![](../../../assets/lyra-unit-selection/character-parts.jpg)

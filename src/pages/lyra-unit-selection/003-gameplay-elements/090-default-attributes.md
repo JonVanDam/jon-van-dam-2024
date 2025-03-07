@@ -22,3 +22,5 @@ The data table <span class="object">ATTR_Default</span> contains an example of h
 ![](../../../assets/lyra-unit-selection/data-table.jpg)
 
 For more information on initializing attribute sets using data tables, please consult the [Unreal Engine documentation on the topic](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-attributes-and-attribute-sets-for-the-gameplay-ability-system-in-unreal-engine#importingdatatables). 
+
+
