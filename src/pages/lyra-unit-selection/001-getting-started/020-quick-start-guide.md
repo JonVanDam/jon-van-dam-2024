@@ -13,7 +13,7 @@ seoDescription: ''
 
 **The easiest way to get started with the plugin, is to enable the content examples, and modify these files to the needs of your project.**
 
-To do this, enable the *LyraUnitSelectionSample* plugin.
+To do this, enable the *Lyra Unit Selection Sample* plugin.
 
 ![](../../../assets/lyra-unit-selection/content-examples.jpg)
 
@@ -25,7 +25,11 @@ Enable this game feature by setting its <span class="variable">Current State</sp
 
 ![](../../../assets/lyra-unit-selection/gfd-active.jpg)
 
-Start a new play-in-editor session, and press the [H] key. This will open the unit selection menu, allowing you to pick from a set of example characters.
+Open the Unit Selection Sample Level.
+
+![](../../../assets/lyra-unit-selection/example-map.jpg)
+
+Start a new play-in-editor session, and press the [H] key. This will open the unit selection menu, allowing you to pick from a set of example characters. 
 
 ![](../../../assets/lyra-unit-selection/unit-selection-ingame.jpg)
 
