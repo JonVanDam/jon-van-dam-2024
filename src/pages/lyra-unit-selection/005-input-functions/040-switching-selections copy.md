@@ -21,7 +21,7 @@ If you are using a <span class="object">GA_UnitSelection</span> ability, simply 
 
 To make a selection directly on the Unit Selection Component, use the following functions :
 
-* <span class="function">Update Selection From Equipment Definition</span>
+* <span class="function">Update Selection From Slot</span>
 * <span class="function">Update Selection From Inventory Item</span>
 
 ![](../../../assets/lyra-unit-selection/update-selection.jpg)

@@ -24,7 +24,6 @@ seoDescription: ''
 | What? | Where? |
 | ----------- | ----------- |
 | [UI icon](/lyra-unit-selection/004-interface/120-ui-icons) | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
-| [Tags / catagories](/lyra-unit-selection/004-interface/130-tags-categories) | Inventory Item Definition *(<span class="object">ID_MyUnit</span>)* |
 | [Abilities](/lyra-unit-selection/003-gameplay-elements/115-abilities) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
 | [Spawnable Actors](/lyra-unit-selection/003-gameplay-elements/150-spawnable-actors) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
 | [Animation](/lyra-unit-selection/002-cosmetic-elements/060-animation) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
