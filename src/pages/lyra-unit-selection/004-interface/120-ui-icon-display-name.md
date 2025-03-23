@@ -11,7 +11,7 @@ seoDescription: ''
 
 Units in the inventoy of a player can implement a UI icon to represent them in widgets. 
 
-![](../../../assets/lyra-unit-selection/ui-icon.jpg)
+![](../../../assets/lyra-unit-selection/added-tiles-arrows.jpg)
 
 To add an icon, open the Equipment Definition for your unit *(<span class="object">EQD_MyUnit</span>)*. In here, you can select a display name for your unit, as well as an icon to use in the user interface.
 
