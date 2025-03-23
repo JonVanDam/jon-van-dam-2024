@@ -9,7 +9,9 @@ seoKeywords: [Unreal Engine 5 Character Select Screen Lyra Unit Selection]
 seoDescription: ''
 ---
 
-Some projects may want to use a 'character select screen' to show the player what their selected unit looks like. This can be done using the following steps:
+![](../../../assets/lyra-unit-selection/splash-preview.jpg)
+
+**Some projects may want to use a 'character select screen' to show the player what their selected unit looks like. This can be done using the following steps:**
 
 ## Placing a template in the level
 
@@ -43,4 +45,4 @@ At runtime, we  can control the activation of this preview scene, and tell it wh
 
 You can customize the appearance of the preview scene by creating a child class of <span class="object">B_UnitSelectionPreviewScene</span>, and placing this actor in your level instead.
 
-![](../../../assets/lyra-unit-selection/w-side.jpg)
+![](../../../assets/lyra-unit-selection/pie-side.jpg)

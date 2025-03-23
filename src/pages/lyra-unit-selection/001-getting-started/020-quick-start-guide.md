@@ -31,7 +31,7 @@ Open the Unit Selection Sample Level.
 
 Start a new play-in-editor session, and press the [H] key. This will open the unit selection menu, allowing you to pick from a set of example characters. 
 
-![](../../../assets/lyra-unit-selection/unit-selection-ingame.jpg)
+![](../../../assets/lyra-unit-selection/pie-side.jpg)
 
 ## Adding your own selectable unit
 
@@ -47,7 +47,7 @@ This operation will copy all necessary assets and their dependencies, allowing y
 
 ![](../../../assets/lyra-unit-selection/copy-manny-rename.jpg)
 
-Lastly, we need to add this unit as a selectable entry to our character select ability. This can be done by opening  <span class="object">GA_UnitSelection_LyraUnitSelectionSample</span>, navigating to its *class details*, and adding our newly created item definition <span class="object">ID_MyUnit</span> to the list of <span class="variable">Selectable Units</span>.
+Lastly, we need to add this unit as a selectable entry to our character select ability. This can be done by opening  <span class="object">GA_LyraUnitSelectionSample</span>, navigating to its *class details*, and adding our newly created item definition <span class="object">EQD_MyUnit</span> to the list of <span class="variable">Selectable Units</span>.
 
 ![](../../../assets/lyra-unit-selection/add-my-unit.jpg)
 
@@ -55,9 +55,9 @@ Start a new play-in-editor session, and press the [H] key. You will now see your
 
 ![](../../../assets/lyra-unit-selection/my-unit-ingame.jpg)
 
-<div class="note">Consult <a href="/lyra-unit-selection/02-reference-material/010-relevant-asset-types">this page</a> for more information on the classes we have just created, and how they fit into Lyra's modular game framework.</div> 
-
 **Congratulations! You have now created your own selectable unit.**
+
+<div class="note">Consult <a href="/lyra-unit-selection/001-getting-started/030-different-assets-and-customization-options">this page</a> for more information on the classes we have just created, and how they fit into Lyra's modular game framework.</div> 
 
 ## Customizing your selectable unit
 
@@ -65,7 +65,8 @@ From here, you can change the properties of your selectable unit you wish to cus
 
 | What? | Where? |
 | ----------- | ----------- |
-| [Add an animation set for your character](/lyra-unit-selection/002-cosmetic-elements/060-animation) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
+| [Change the display name](/lyra-unit-selection/002-cosmetic-elements/060-animation) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
+| [Add an animation set](/lyra-unit-selection/002-cosmetic-elements/060-animation) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |
 | [Assign a skeletal mesh and character parts](/lyra-unit-selection/002-cosmetic-elements/070-skeletal-mesh-character-parts) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
 | [Add starting inventory and equipment](/lyra-unit-selection/003-gameplay-elements/080-starting-inventory-equipment) | Equipment Instance *(<span class="object">EQI_MyUnit</span>)* |
 | [Add abilities](/lyra-unit-selection/003-gameplay-elements/115-abilities) | Equipment Definition *(<span class="object">EQD_MyUnit</span>)* |

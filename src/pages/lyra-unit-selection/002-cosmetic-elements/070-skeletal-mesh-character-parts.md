@@ -13,7 +13,7 @@ Units can each have their own appearance. In this regard, we should differentiat
 
 ## Main skeletal mesh on the pawn
 
-The actual Skeletal Mesh Component on the pawn. This is the mesh that is actually runs the main animation instance, and is used for gameplay (e.g. character proportions and collision). In many projects (including *Fortnite* and *ShooterGame*), this mesh is actually an invisible mesh, and all cosmetics are derived aftwerwards from its pose.
+Firstly, there is the actual Skeletal Mesh Component on the pawn. This is the mesh that is actually runs the main animation instance, and is used for gameplay (e.g. character proportions and collision). In many projects (including *Fortnite* and *ShooterGame*), this is actually an invisible mesh, and all cosmetics are derived aftwerwards from its pose.
 
 When a unit is selected, you can change the main skeletal mesh of a pawn in two ways:
 
@@ -31,12 +31,12 @@ When a unit is selected, you can change the main skeletal mesh of a pawn in two 
 
 ## Character parts 
 
-Character parts are cosmetic actors that are added to a pawn, without affecting gameplay. 
+Secondly, it is possible to add cosmetic meshes without affecting the pawn itself or having an influence on gameplay. This is done using character parts. 
 
 A common approach is to have a main skeletal mesh for each character or archetype in your game, and different character parts that represent outfits, skins, or customization items.
 
 To add character parts while your unit is selected, open the Equipment Instance *(<span class="object">EQI_MyUnit</span>)* for your unit, and modify the <span class="variable">Character Parts</span> variable.
 
-You can use any actor type as a character part, but it is recommended to use one that inherits from (<span class="object">B_UnitCosmetics</span>). In any case, these actors must have their 'replication' propertry set to 'false', or they will not spawn in clients. To spawn replicated actors, use the ['spawn actors' functionality](/lyra-unit-selection/003-gameplay-elements/150-spawnable-actors) on the equipent definition instead.
+You can use any actor type as a character part, but it is recommended to use one that inherits from <span class="object">B_UnitCosmetics</span>. In any case, these actors must have their 'replication' propertry set to 'false', or they will not spawn in clients. To spawn replicated actors, use the ['spawn actors' functionality](/lyra-unit-selection/003-gameplay-elements/150-spawnable-actors) on the equipent definition instead.
 
 ![](../../../assets/lyra-unit-selection/character-parts.jpg)

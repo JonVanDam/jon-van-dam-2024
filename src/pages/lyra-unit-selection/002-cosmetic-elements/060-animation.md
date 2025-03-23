@@ -23,8 +23,8 @@ To do this, open the Equipment Instance *(<span class="object">EQI_MyUnit</span>
 
 ![](../../../assets/lyra-unit-selection/animation-slots-eqi.jpg)
 
-For most projects, it is sufficient to provide *Unit Selection* as the key, and your desired animation blueprint as the value. These will then be treated as an animation instruction for the (<span class="object">Animation Manager Component</span>), which will link the animation layers on the pawn. 
+For most projects, it is sufficient to provide "*UnitSelection*" as the key, and your desired animation blueprint as the value. These will then be treated as an animation instruction for the <span class="object">Animation Manager Component</span>, which will link the animation layers on the pawn. 
 
-For more advanced applications or information on linking layers from multiple animation blueprints, please consult the article on animation instructions.
+For more advanced applications or information on linking layers from multiple animation blueprints, please consult the [article on animation instructions](/lyra-unit-selection/006-reference-material/030-animation-instructions).
 
 For more information on Animation Blueprint Linking in general, please consult the [Unreal Engine documentation on the topic](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-blueprint-linking-in-unreal-engine). 

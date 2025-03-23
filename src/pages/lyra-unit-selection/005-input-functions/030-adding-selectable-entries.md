@@ -26,14 +26,5 @@ To add or remove a selectable entry dyrectly on the Unit Selection Component, us
 
 ![](../../../assets/lyra-unit-selection/add-selectable-unit.jpg)
 
-## Lyra Inventory system integration
 
-Selectable units are stored in the inventory of the player, using [Lyra's inventory system](https://dev.epicgames.com/documentation/en-us/unreal-engine/lyra-inventory-and-equipment-in-unreal-engine).
-
-<embed src="/pdf/lus-execution-flow.pdf" width="100%" height="420px" toolbar=0 frameborder="0" scrolling="no" />
-
-The advantage of this approach, is that inventory items in Lyra are modular and consist of inventory fragments. These fragments can be used to add metadata or additional functionality to an item. These can be used to:
-
-* [Add UI icons](/lyra-unit-selection/004-interface/120-ui-icons)
-* [Add categories / classifications using gameplay tags](/lyra-unit-selection/004-interface/130-tags-categories)
 
