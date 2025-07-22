@@ -39,7 +39,7 @@ html.dark body.gradient-bg {
 }
 
 .header {
-  @apply h-14 w-full flex justify-between items-center px-8;
+  @apply h-14 w-full flex justify-between items-center px-4 sm:px-8;
 }
 
 /* HEADER MENU - a toggable dropdown menu below 768 */
@@ -50,7 +50,7 @@ html.dark body.gradient-bg {
 
 @media screen and (max-width: 768px) {
   .header .header-menu {
-    @apply fixed top-14 left-0 right-0 bottom-0 py-4 w-full hidden flex-col items-end px-8;
+    @apply fixed top-14 left-0 right-0 bottom-0 py-4 w-full hidden flex-col items-end px-4 sm:px-8;
     @apply bg-body;
     @apply border-t border-primary;
   }
